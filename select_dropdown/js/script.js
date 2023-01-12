@@ -188,6 +188,8 @@ const filterList = searchTerm => {
 const ul = document.querySelector(".content ul");
 input = ul.querySelector("input");
 const allList = document.querySelectorAll(".list-cont .list")
+// let oldNewAllList = document.querySelectorAll(".list-cont ul li")
+// console.log(oldNewAllList);
 const closeAll = document.querySelector('#close');
 const dropdownCont = document.querySelector(".list-cont")
 
@@ -237,7 +239,8 @@ function addTag(event) {
 
 let filterItem = searchValue => {
   searchValue = searchValue.toLowerCase();
-  allList.forEach(item => {
+  document.querySelectorAll(".list-cont ul li").forEach(item => {
+    console.log(item)
     let listTerm = item.innerText.toLowerCase();
     if (listTerm.indexOf(searchValue) != -1) {
       item.style.display = "block";
