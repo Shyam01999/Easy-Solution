@@ -202,30 +202,27 @@ function createTag() {
     ul.insertAdjacentHTML("afterbegin", liTag); //adding liTag inside ul tag.
   })
 
- 
+
 }
 
 function remove(element, tag) {
   let index = tags.indexOf(tag);//getting removing tag index
   tags = [...tags.slice(0, index), ...tags.slice(index + 1)];//remove or exclude selected tag
   element.parentElement.remove();//removing li of removed tag
-  // console.log(document.querySelectorAll(".list:eq(1)"));
-  document.querySelectorAll(".new-list").forEach(item  => {
-    console.log(item)
-    if(item.innerText === tag) {
+  document.querySelectorAll(".new-list").forEach(item => {
+    // console.log(item)
+    if (item.innerText === tag) {
       item.remove();
     }
   })
-  // tags.slice(index, 1)
 }
 
 function addTag(event) {
   if (event.key == "Enter") { // May, May
 
     let tag = event.target.value.replace(/\s+/g, ' ');//removing unwanted space from user tag
-    console.log(tag);
     if (tag.length > 1 && !tags.includes(tag)) {
-      console.log(tag.split(" ")); // [May], [May, June], [May, June]
+      // console.log(tag.split(" ")); // [May], [May, June], [May, June]
       tag.split(' ').forEach(tag => {
         tags.push(tag) //adding each tag to array
         let liElement = `<li class="list new-list">${tag}</li>`
@@ -241,14 +238,11 @@ function addTag(event) {
 
 let filterItem = searchValue => {
   searchValue = searchValue.toLowerCase();
-  // console.log(searchItem)
   allList.forEach(item => {
-    // console.log(item)
-    // Jan -> jan
     let listTerm = item.innerText.toLowerCase();
     if (listTerm.indexOf(searchValue) != -1) {
       item.style.display = "block";
-      
+
     } else {
       item.style.display = "none";
       // document.querySelector(".list-cont").innerHTML = "<p>No result Found</p>"
@@ -272,19 +266,11 @@ document.querySelector(".content").addEventListener('click', function () {
 
 allList.forEach(item => {
   item.addEventListener("click", (event) => {
-    console.log(event.path[3].children[0].children[0].children[1]);
-    console.log(document.querySelector(".content ul input"))
-    // document.querySelector(".content ul input").value ="";
+    document.querySelector(".content ul input").value = "";
     // event.path[3].children[0].children[0].children[0].value="";
-    // console.log(item.innerText)
-    // console.log(tags)
-
-    // let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${item.innerText}')"></i>${item.innerText}</li>`
-    //     ul.insertAdjacentHTML("afterbegin", liTag);
 
     if (!tags.includes(item.innerText)) {
       tags.push(item.innerText);
-      console.log(tags);
       ul.querySelectorAll("li").forEach(li => {
         li.remove();
       })
@@ -303,7 +289,11 @@ closeAll.addEventListener('click', function () {
   tags.length = 0;//making array empty
   ul.querySelectorAll("li").forEach(li => { //removing all liTags
     li.remove();
-    
+  })
+  
+  document.querySelectorAll(".new-list").forEach(item  => {
+    // console.log(item) 
+      item.remove();
   })
 })
 
