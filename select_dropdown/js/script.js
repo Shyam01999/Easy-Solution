@@ -219,7 +219,6 @@ function remove(element, tag) {
 
 function addTag(event) {
   if (event.key == "Enter") { // May, May
-
     let tag = event.target.value.replace(/\s+/g, ' ');//removing unwanted space from user tag
     if (tag.length > 1 && !tags.includes(tag)) {
       // console.log(tag.split(" ")); // [May], [May, June], [May, June]
@@ -242,7 +241,6 @@ let filterItem = searchValue => {
     let listTerm = item.innerText.toLowerCase();
     if (listTerm.indexOf(searchValue) != -1) {
       item.style.display = "block";
-
     } else {
       item.style.display = "none";
       // document.querySelector(".list-cont").innerHTML = "<p>No result Found</p>"
@@ -292,9 +290,9 @@ closeAll.addEventListener('click', function () {
     li.remove();
   })
 
-  document.querySelectorAll(".new-list").forEach(item  => {
+  document.querySelectorAll(".new-list").forEach(item => {
     // console.log(item) 
-      item.remove();
+    item.remove();
   })
 })
 
