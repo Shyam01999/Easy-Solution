@@ -185,7 +185,6 @@ const filterList = searchTerm => {
 }
 
 // Multitag Functionality
-
 const ul = document.querySelector(".content ul");
 input = ul.querySelector("input");
 const allList = document.querySelectorAll(".list-cont .list")
