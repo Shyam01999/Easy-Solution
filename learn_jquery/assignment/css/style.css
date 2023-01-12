@@ -1,0 +1,9 @@
+body{
+    color: aliceblue;
+    background-color: whitesmoke;
+    font-size: 1rem;
+  }
+
+  #multidatepicker{
+   width: 25rem;
+  }

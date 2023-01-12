@@ -1,0 +1,57 @@
+.container{
+    border: 5px solid black;
+}
+
+.row{
+    border: 3px solid green;
+}
+
+.col,.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
+    border: 3px solid red;
+}
+
+body{
+    background-color: gray;
+}
+
+#header{
+background-color: orange;
+padding: 10px 0 10px 10px;
+}
+
+#navbar{
+background-color: paleturquoise;
+padding: 3px 0px;
+}
+
+#navbar ul{
+list-style: none;
+margin: 0;
+
+}
+
+#navbar ul li{
+    display: inline-block;
+    color: aliceblue
+}
+
+#navbar ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+#left-sidebar{
+    background-color: aquamarine;
+}
+
+#content{
+    background-color: white;
+}
+
+#right-sidebar{
+    background-color: blueviolet;
+}
+
+#footer{
+background-color: orange;
+}

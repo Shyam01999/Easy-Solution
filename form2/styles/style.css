@@ -1,0 +1,178 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?uffhkc');
+  src:  url('fonts/icomoon.eot?uffhkc#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?uffhkc') format('truetype'),
+    url('fonts/icomoon.woff?uffhkc') format('woff'),
+    url('fonts/icomoon.svg?uffhkc#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-error:before {
+  content: "\e924";
+}
+.icon-check_circle:before {
+  content: "\e925";
+}
+
+
+*{
+  box-sizing: border-box;
+  
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #F0DBDB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  font-family: "Poppins", sans-serif;
+}
+
+.container{
+  width: calc(100vw - 65vw);
+  height: 43rem;
+  background-color: #FEFCF3;
+  border-radius: 10px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.;
+  overflow: hidden;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header{
+  background-color: #65647C;
+  width: calc(100vw - 65vw);
+  /* padding: 5px 0; */
+}
+
+.header h2{
+  text-align: center;
+  color: #FEFCF3;
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.form-control{
+  /* margin: 0.5rem; */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.form-control label{
+display: inline-block;
+margin-bottom:5px;
+}
+
+.form-control input{
+  width: 100%;
+  display: block;
+  font-family: "Poppins", sans-serif;
+  padding:10px;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid #65647C;
+  border-radius: 5px;
+} 
+
+.form-control input:focus{
+  outline: 0;
+  border-color: #7DE5ED;
+}
+
+.form-control.success input{
+border-color: #54B435;
+}
+
+.form-control.error input{
+  border-color: #DC3535;
+}
+
+.form-control i{
+  position: absolute;
+  right: 0.5rem;
+  top: 2rem;
+  visibility: hidden;
+}
+
+.form-control.error small{
+  visibility: visible;
+}
+
+.form-control.success i.icon-check_circle{
+  color: #54B435;
+  visibility: visible;
+}
+
+.form-control.error i.icon-error{
+  color: #DC3535;
+  visibility: visible;
+}
+
+.form-control small{
+  color: #DC3535;
+  position: absolute;
+  left: 0;
+  visibility: hidden;
+  
+}
+
+
+#comment{
+  width: 100%;
+  display: block;
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid #65647C;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+}
+
+#comment:focus{
+  outline: 0;
+  border-color: #7DE5ED;
+}
+
+.btn{
+  width: calc(100vw - 70vw);
+  background-color:#81C6E8;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-weight: bold ;
+}
+
+.btn:hover{
+  background-color:#A5F1E9;
+}
+
+

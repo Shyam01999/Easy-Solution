@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Contact Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Contact Form</h2>
+        </div>
+        <div class="formdesign-cont">
+            <form class="form" id="form">
+                <div class="form-control">
+                    <label for="username">Username</label>
+                    <input type="text" name="" id="username" placeholder="Enter your fullname" minlength="3" maxlength="28" autocomplete ="off" required>
+                    <i class="icon-check_circle"></i>
+                    <i class="icon-error"></i>
+                    <small id="username_message">Error msg</small>
+                </div>
+                <div class="form-control">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="" id="email" placeholder="Enter your email" autocomplete ="off" required>
+                    <i class="icon-check_circle"></i>
+                    <i class="icon-error"></i>
+                    <small id="email_message">Error msg</small>
+                </div>
+                <div class="form-control">
+                    <label for="phonenumber">Mobile number</label>
+                    <input type="tel" name="" id="phonenumber" placeholder="Enter your phone number"  maxlength="10" autocomplete ="off" required>
+                    <i class="icon-check_circle"></i>
+                    <i class="icon-error"></i>
+                    <small id="mobile_number_message">Error msg</small>
+                </div>
+                <div class="form-control">
+                    <label for="address">Address</label>
+                    <input type="text" name="" id="address" placeholder="Enter your address" required>
+                    <i class="icon-check_circle"></i>
+                    <i class="icon-error"></i>
+                    <small id="address_message">Error msg</small>
+                </div>
+                <div class="form-control">
+                    <label for="comment">Comment</label>
+                    <textarea name="" id="comment" rows="5" placeholder="Enter your text (optional)"></textarea>
+                    <i class="icon-check_circle"></i>
+                    <i class="icon-error"></i>
+                    <small id="comment_message">Error msg</small>
+                </div>
+                <div class="form-submit-btn">   
+                    <input type="submit" disabled name="" id="submit" class="btn" value="SUBMIT">
+                </div>
+            </form>
+        </div>
+    </div> 
+    <script src="./js/script.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>

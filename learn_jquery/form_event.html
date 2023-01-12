@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events</title>
+    <style>
+        body{
+            font-family: arial;
+        }
+
+        #box {
+        background-color: pink;
+        padding: 10px;
+        border: 1px solid #000;
+      }
+    </style>
+</head>
+<body>
+    <h1>Jquery form Events implementation</h1>
+    <form action="" id="sform">
+        <label for="">Name</label><input type="text" id="sname"><br><br>
+
+        <label for="">Class</label><input type="text" id="sclass"><br><br>
+
+        <label for="">Country</label>
+        <select id="scountry">
+            <option value="India">India</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="Nepal">Nepal</option>
+        </select>
+        <br><br>
+        <input type="submit">
+
+
+    </form>
+    <div class="test" style="border: 2px solid red;"></div>
+
+    <script src="./jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#sname, #sclass, #scountry').focus(function(){
+                // console.log("hii")
+                $(this).css("background","orange")
+            })
+
+            $('#sname, #sclass, #scountry').blur(function(){
+                // console.log("hii");
+                $(this).css("background-color","yellow")
+            })
+
+            $(' #scountry').change(function(){
+                let a = $(this).val();
+                 $('.test').html(a)
+            })
+
+            $(' #sname, #sclass').select(function(){
+                //   console.log("hii");
+                $(this).css("background-color","green");      
+            })
+
+            $('#sform').submit(function(){
+                //   console.log("hii");
+                alert("form submitted.")
+                alert("Name " +$("#sname").val() +"class " +$("#sclass").val()+ " country " +$("#scountry").val())
+                
+                
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery tutorials</title>
+    <style>
+      #first{
+        background-color: pink;
+        padding: 10px;
+        border: 3px solid #000;
+      }
+
+      #second{
+        background-color: lightblue;
+        padding: 10px;
+        border: 3px solid #000;
+      }
+
+      
+
+    </style>
+  </head>
+  <body>
+    <h1>Jquery has() & is() Methods</h1>
+        <div id="first" >
+            <p>Lorem ipsum dolor sit, amet <b>consectetur adipisicing elit. Inventore eaque ad amet.</b>Perspiciatis ea nulla quas harum possimus dicta cumque.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto dolorem hic eveniet iure laboriosam deleniti impedit dicta omnis, velit tenetur.</p>
+        </div>
+        <ul>
+            <li>Orange</li>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Grapes</li>
+        </ul>
+
+        <div id="second" >
+            <p class="test">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore eaque ad amet. Perspiciatis ea nulla quas harum possimus dicta cumque.</p>
+            <p>Lorem ipsum dolor sit amet consectetur <span> adipisicing elit. Iusto dolorem hic eveniet iure laboriosam </span>deleniti impedit dicta omnis, velit tenetur.</p>
+        </div>
+   
+
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        //  $("p").has("b, span").css("background-color","orange");
+        $('p').click(function(){
+            if($(this).parent().is('div')){
+            $(this).css("background-color","orange");
+        }
+        })
+        
+      })
+    </script>
+  </body>
+</html>

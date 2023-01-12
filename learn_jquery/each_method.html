@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery tutorials</title>
+    
+  </head>
+  <body>
+    <h1>Jquery each() Method</h1>
+        
+        <ul>
+            <li>Orange</li>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Grapes</li>
+        </ul>
+
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('li').each(function(){
+            $(this).text("Hello");
+        });  
+      })
+    </script>
+  </body>
+</html>

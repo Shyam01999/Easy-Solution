@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery tutorials</title>
+    <style>
+      #box {
+        background-color: pink;
+        width: 80rem;
+        height: 20rem;
+      }
+
+      h2{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jquery event.stopPropagation property implementation.</h1>
+
+    <div id="box">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus alias assumenda quo, consequatur voluptate itaque provident iusto porro nostrum eius.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat aperiam natus ex minima iure eligendi placeat mollitia accusantium accusamus debitis!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus laboriosam corporis delectus ratione et nobis harum, praesentium voluptas quo exercitationem!</p>
+    </div>
+
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('p').each(function(i){
+            $(this).on('click',{value:i}, function(event){
+                alert(event.data.value);
+            })
+        })
+
+      })    
+    </script>
+  </body>
+</html>

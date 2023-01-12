@@ -1,0 +1,1 @@
+<h1> This is a file from another page. </h1>

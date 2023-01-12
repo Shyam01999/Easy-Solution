@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery tutorials</title>   
+    <style>
+        #box{
+            width: 30rem;
+            height: 10rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jquery Click event implementation.</h1>
+    <div id="box">
+        
+    </div>
+    <button id="button">Change background</button>
+    <button id="btnhead">Click to add heading</button>
+    <button id="btntext"> Click to add text </button>
+
+    <script src="./jquery.js"></script>
+    <script>
+    $(document).ready(function (){
+
+    $("#button").click(function (){
+     $("#box").css({"background-color":"red" , "border" : "5px solid black"});
+        // console.log("hii")
+    })
+
+    $('#btnhead').click(function (){
+         $('#box').html("<h2>Test heading</h2>");
+        // console.log("hello")
+    })
+
+    $('#btntext').click(function (){
+         console.log("click");
+         // $("#box").append("<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>"  );
+        // $("<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>").appendTo("#box")
+    })
+
+
+
+
+
+
+
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+let items = [
+  {
+    image: "icon-flag",
+    title: "New Subscription",
+    subtitle:
+      " Your customer subscribed for the basic plan. The customer will pay $25 per month.",
+    time: "2pm",
+  },
+  // {
+  //   image: "icon-trending-up",
+  //   title: "Server #2 not responding",
+  //   subtitle: "Some technical error occurred needs to be resolved.",
+  //   time: "1pm",
+  // },
+  {
+    image: "icon-mail",
+    title: "2 new messages",
+    subtitle: " The last payment for your G Suite Basic subscription failed.",
+    time: "4pm",
+  },
+  {
+    image: "icon-flag",
+    title: "Sandy Doe",
+    subtitle:
+      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    time: "1pm",
+  },
+  // {
+  //   image: "icon-menu",
+  //   title: "99% server ",
+  //   subtitle: "consectetur, adipisci velit.",
+  //   time: "1pm",
+  // },
+  {
+    image: "icon-mail",
+    title: "2 new messages",
+    subtitle: " The last payment for your G Suite Basic subscription failed.",
+    time: "4pm",
+  },
+  {
+    image: "icon-flag",
+    title: "Sandy Doe",
+    subtitle:
+      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    time: "1pm",
+  },
+];
+
+let popopList = document.querySelector(".popop-list");
+let template = `<div class="popop-item">
+    <div class="left-side">
+      <i class="popop-icon"></i>
+    </div>
+    <div class="right-side">
+      <div class="right-side-top-part">
+        <span class="popop-title"></span>
+        <span class="popop-time"></span>
+      </div>
+      <div class="right-side-bottom-part">
+        <p class="popop-subtitle"></p>
+      </div>
+    </div>
+  </div>`;
+
+for (let i = 0; i < items.length; i++) {
+  // console.log("Hi");
+  popopList.insertAdjacentHTML("afterbegin", template);
+  document.querySelector(".popop-icon").classList.add(items[i].image);
+  // document.querySelector(".popop-image").setAttribute("src", items[i].image);
+  // document.querySelector(".popup-icon").classList.add(items[i].image);
+  document.querySelector(".popop-title").innerText = items[i].title;
+  document.querySelector(".popop-time").innerText = items[i].time;
+  document.querySelector(".popop-subtitle").innerText = items[i].subtitle;
+}

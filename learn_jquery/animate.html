@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery tutorials</title>
+    <style>
+      #box {
+        background-color: pink;
+        padding: 10px;
+        border: 1px solid #000;
+        width: 7rem;
+        height: 7rem;
+        position: relative;
+      }
+
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jquery animate() Method implementation.</h1>
+
+    <div id="box" class="test">
+      <h2>Test Box</h2>
+    </div>
+    <br /><br />
+
+    <button class="animateBtn">Animate</button>
+    <button id="stopBtn">Stop</button>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".animateBtn").click(function () {
+          console.log("hii");
+          $("#box").animate(
+            { left: "30rem", fontSize: "20px" },
+            3000,
+            function () {
+              console.log("First animation completed");
+            }
+          );
+          $("#box").animate({ top: "30rem" }, 2000);
+          $("#box").animate({ width: "+=10rem" });
+        });
+
+        $('#stopBtn').click(function(){
+            console.log("stop");
+            $("#box").stop(true);
+        })
+      });
+    </script>
+  </body>
+</html>

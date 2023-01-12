@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery tutorials</title>
+    <style>
+      #box {
+        background-color: pink;
+        padding: 10px;
+        border: 1px solid #000;
+      }
+
+      .red{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jquery hasClass() Method implementation.</h1>
+
+    <div id="box" class="test">
+      <h2>Test Box</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+        praesentium <span>esse fugiat tempora quae delectus</span> unde architecto, vitae
+        quidem iusto? Magni porro optio quidem delectus ab nemo quae corporis
+        fuga.
+      </p>
+    </div>
+    <br><br>
+
+    <button class="hasClassBtn">hasClass</button>
+
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(".hasClassBtn").click(function(){
+            console.log("hii");
+            let x = $('#box').hasClass("test");
+            if(x == true){
+                console.log("yes");
+            }else{
+                console.log("No");
+            }
+        })
+        
+      })
+    </script>
+  </body>
+</html>

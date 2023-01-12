@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery tutorials</title>
+    <style>
+      #box {
+        background-color: pink;
+        width: 80rem;
+        height: 20rem;
+      }
+
+      #result {
+        background-color: orange;
+        position: relative;
+        width: 5rem;
+        height: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jquery pageX and pageY implementation.</h1>
+
+    <div id="box"></div>
+
+    <div id="result"></div>
+    
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(document).mousemove(function(event){
+            $('#box').text("X: " + event.pageX + "Y: " + event.pageY);
+
+            var x = event.pageX;
+            var y = event.pageY;
+
+            $('#result').offset({top: y , left: x})
+        })
+
+      })    
+    </script>
+  </body>
+</html>

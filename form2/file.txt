@@ -1,0 +1,85 @@
+const email_pattern = /^([a-zA-z0-9])+\@([a-z])+\.([a-z])+$/;
+const phone_pattern = /^([0-9]{10})+$/;
+const form = document.getElementById("form_element");
+function checkData(form)
+{
+    // 2 -? 3 -> 6 -> 2
+    let children = form.children;
+    for(let i=0;i<children.length;i++)
+    {
+        let child = children[i];
+        if(child.id=="firstname")
+        {
+            if(document.getElementById(child.id).value.trim()=="")
+            {
+                alert("please enter the firstname");
+                return false;
+            }
+            else if(!isNaN(document.getElementById(child.id).value))
+            {
+                alert("enter the alphabets only");
+                return false;
+            }
+            else if(!(document.getElementById(child.id).value.length>5))
+            {
+                alert("firstName must be 5 characters above");
+                return false;
+            }
+        }
+        else if(child.id=="lastname")
+        {
+            if(document.getElementById(child.id).value.trim()=="")
+            {
+                alert("please enter the lastname");
+                return false;
+            }
+            else if(!isNaN(document.getElementById(child.id).value))
+            {
+                alert("enter the alphabets only");
+                return false;
+            }
+        }
+        else if(child.id=="email")
+        {
+            if (document.getElementById(child.id).value.trim() == "") 
+            {
+			    alert("please enter the email");
+                return false;
+			}
+            else if(!email_pattern.test(document.getElementById(child.id).value))
+            {
+                alert("Enter your email correctly");
+                return false;
+            }
+        }
+        else if(child.id=="phone")
+        {
+            if (document.getElementById(child.id).value.trim() == "") 
+            {
+			    alert("please enter the phoneNumber");
+                return false;
+			}
+            else if(!phone_pattern.test(document.getElementById(child.id).value))
+            {
+                alert("phoneNumber must be 10 digits");
+                return false;
+            }
+        }
+        else if(child.id=="address")
+        {
+            if (document.getElementById(child.id).value.trim() == "") 
+            {
+			    alert("please enter your message");
+                return false;
+			}
+            else if(!(document.getElementById(child.id).value.length>30))
+            {
+                alert("Enter your message above 30 characters");
+                return false;
+            }
+        }
+        else{
+            return true;
+        }
+    }
+}

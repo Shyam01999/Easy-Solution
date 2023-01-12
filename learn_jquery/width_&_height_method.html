@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery tutorials</title>
+    <style>
+      #box {
+        background-color: pink;
+        padding: 10px;
+        border: 1px solid #000;
+      }
+
+      .test {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jquery width() & height().</h1>
+
+    <div id="box">
+      <h2>Test Box</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+        praesentium esse fugiat tempora quae delectus unde architecto, vitae
+        quidem iusto? Magni porro optio quidem delectus ab nemo quae corporis
+        fuga.
+      </p>
+    </div>
+    <br />
+    <button id="width">width</button>
+    <button id="height">height</button>
+
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#width").click(function () {
+          console.log("width : " +$('#box').width());
+          console.log("InnerWidth : " +$('#box').innerWidth());
+          console.log("OuterWidth : " +$('#box').outerWidth());
+          console.log("OuterWidth(true) : " +$('#box').outerWidth(true));
+          
+        });
+
+        $("#height").click(function () {
+          console.log("height : " +$('#box').height());
+          console.log("InnerHeight : " +$('#box').innerHeight());
+          console.log("OuterHeight : " +$('#box').outerHeight());
+          console.log("OuterHeight(true) : " +$('#box').outerHeight(true));
+        });
+      });
+    </script>
+  </body>
+</html>

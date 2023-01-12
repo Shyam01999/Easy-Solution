@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax tutorial</title>
+</head>
+<body>
+    <div class="div1"><h1>Let jQuery AJAX Change This Text</h1></div>
+
+    <button>Get External text</button>
+    <script src="./jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                // console.log("click");
+                $('.div1').load("file.txt", function(responseTxt, statusTxt, xhr){
+                    if(statusTxt == "success"){
+                        alert("External content loaded successfully.")
+                    }
+                    if(statusTxt == "error")
+                    alert("Error: " +xhr.status+ ":"+xhr.statusTxt)
+                });
+                });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery tutorials</title>
+  </head>
+  <body>
+    <h1>Javascript array Methods implementation.</h1>
+    <h2><u>toString()</u></h2>
+    <!-- <p>The toString method returns the array of string separated by comma</p> -->
+    <p id="demo"></p>
+
+    <h2><u>push()</u></h2>
+    <!-- <p>The push method used to add a new element to the last position of an array.</p> -->
+    <p id="originalArray"></p>
+    <p id="newArray"></p>
+
+    <h2><u>pop()</u></h2>
+    <!-- <p>The pop method used to remove an element in the last position of an array.</p> -->
+    <p id="popElement"></p>
+    <p id="popArray"></p>
+
+    <h2><u>shift()</u></h2>
+    <!-- <p>The shift method used to remove an element in the first position of an array.</p> -->
+    <p id="shiftElement"></p>
+    <p id="shiftArray"></p>
+
+    <h2><u>unShift()</u></h2>
+    <!-- <p>The shift method used to remove an element in the first position of an array.</p> -->
+    <p id="unshiftElement"></p>
+    <p id="unshiftArray"></p>
+
+    <h2><u>concat()</u></h2>
+    <!-- <p>The shift method used to remove an element in the first position of an array.</p> -->
+    <p id="concatElement"></p>
+    <p class="concatArray"></p>
+
+    <h2><u>length</u></h2>
+    <p class="arrayElement"></p>
+    <p id="arrayLength"></p>
+
+    <h2><u>splice</u></h2>
+    <p id="spliceElement"></p>
+    <p id="spliceArray"></p>
+
+    <h2><u>slice</u></h2>
+    <p id="sliceElement"></p>
+
+    <h2><u>indexOf</u></h2>
+    <p id="indexOfElement"></p>
+    <p id="element"></p>
+
+    <h2><u>find</u></h2>
+    <p id="findElement"></p>
+    <p id="elementPresent"></p>
+
+
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        const fruits = ["Apple","Orange","Mango","Banana"];
+        //toString
+        let result = fruits.toString();
+        $('#demo').text(result);
+
+        //push
+        $("#originalArray").html("Original Array :"+ fruits + "<br>");
+         fruits.push("Lemmon");
+        $("#newArray").html("Change Array: " +fruits);
+
+        //pop
+        $("#popElement").html("Pop Element: " + fruits[4]);
+        fruits.pop()
+        $("#popArray").html("Change Array: " + fruits);
+
+        //shift
+        $("#shiftElement").html("Shift Element:" +fruits[0]);
+        fruits.shift();
+        $("#shiftArray").html("Change Array: " +fruits);
+
+        //unshift
+        $("#unshiftElement").html("Unshift Element:  Apple");
+        fruits.unshift("Apple")
+        $("#unshiftArray").html("change Array:" +fruits);
+
+        //concat
+        $("#concatElement").html("Concat Elements: Cocunut, Grapes, Pappya");
+        let addFruits =["Cocunut", "Grapes", "Pappya"]
+        let newArray = fruits.concat(addFruits);
+        $(".concatArray").html("Change array: "+ newArray)
+
+        //length
+        $(".arrayElement").html("Array element:" +newArray);
+        $("#arrayLength").html("Array length is: " +newArray.length);
+
+        //splice
+        $("#spliceElement").html("Splice element: 'lemmon' ,'kiwi'" )
+         fruits.splice(2 , 0, "lemmon","kiwi");
+         $("#spliceArray").html("Splice array is: " +fruits );
+
+        //slice
+        $("#sliceElement").html("Slice element: "+fruits.slice(3,5));
+
+        //indexOf
+        $("#indexOfElement").html("Array elements:" +fruits);
+        $("#element").html("Index of Lemmon:" +fruits.indexOf("lemmon"));
+
+        //find
+        $("#findElement").html("Find mango is present in array ?");
+        $("#elementPresent").html(fruits.find(function checkFruits(fruits){
+            if(fruits == "Mango"){
+                return 1;
+            }else{
+                return 0;   
+            }
+        }));
+        
+       
+
+        
+
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="./styles/pagination.css"> -->
+    <!-- CSS only
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="left-col">
+                <a href="#"><img src="/task/images/logo.png" alt="logo not available">
+                    <span>Philbert</span>
+                </a>
+                <i class="icon-menu"></i>
+                <input type="text" placeholder="Search">
+                <span>
+                    <button type="button" class="search-btn">
+                        <i class="icon-search"></i>
+                    </button>
+                </span>
+
+            </div>
+            <div class="right-col">
+                <ul>
+                    <li><a href="#"><i class="icon-cog"></i></a></li>
+                    <li><a href="#"><i class="icon-apps"></i></a></li>
+                    <li><a href="#"><i class="icon-dots-three-vertical"></i></a></li>
+                    <li><a href="#"><i class="icon-notifications"></i><div class="notification-icon">5</div></a></li>
+                    <li><a href="#"><img src="/task/images/user1.png" alt="Profile image not available"></a></li>
+                </ul>
+
+                <div class="popop" id="popop">
+                    <div class="popop-header">
+                        <span>Notifications</span>
+                        <p class="popop-right">CLEAR ALL</p>
+                    </div>
+                    <hr>
+                    <div class="popop-list">
+                         <!-- <div class="popop-item">
+                            <i class="icon-flag"></i>
+                            <span class="popop-title">New Subscription Created</span>
+                            <span class="popop-time">2pm</span>
+                            <p>Your customer subscribed for the basic plan.</p>
+                        </div>
+                        <hr>
+                        <div class="popop-item">
+                            <i class="icon-trending-up"></i>
+                            <span class="popop-title orange">Server #2 not responding</span>
+                            <span class="popop-time">1pm</span>
+                            <p>Some technical error occurred needs to be..</p>
+                        </div>
+                        <hr>
+                        <div class="popop-item">
+                            <i class="icon-mail"></i>
+                            <span class="popop-title">New Subscription Created</span>
+                            <span class="popop-time">4pm</span>
+                            <p>The last payment for your G Suite Basic cdcd</p>
+                        </div>
+                        <hr>
+                        <div class="popop-item">
+                            <img src="./images/avatar.jpg" alt="">
+                            <span class="popop-title">Sandy Doe</span>
+                            <span class="time">1pm</span>
+                            <p class="info"> Neque porro quisquam est qui dolorem ipsu </p>
+                        </div>
+                        <hr>
+                        <div class="popop-item">
+                            <i class="icon-menu"></i>
+                            <span class="popop-title red">99% server space occupied.</span>
+                            <span class="popop-time">1pm</span>
+                            <p>The last payment for your G Suite Basic ddd </p>
+                        </div> -->
+                    </div>
+                    <hr>
+                    <div class="popop-footer">
+                        <p class="popop-list-item">Read All</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- 
+        <div class="popop-list">
+                         <div class="popop-item">
+                            <i class="icon-flag"></i>
+                            <span class="popop-title">New Subscription Created</span>
+                            <span class="popop-time">2pm</span>
+                            <p>Your customer subscribed for the basic plan.</p>
+        </div>
+        <div class="popop-list">
+                         <div class="popop-item">
+                            <i class="icon-flag"></i>
+                            <span class="popop-title">New Subscription Created</span>
+                            <span class="popop-time">2pm</span>
+                            <p>Your customer subscribed for the basic plan.</p>
+        </div>
+        <div class="popop-list">
+                         <div class="popop-item">
+                            <i class="icon-flag"></i>
+                            <span class="popop-title">New Subscription Created</span>
+                            <span class="popop-time">2pm</span>
+                            <p>Your customer subscribed for the basic plan.</p>
+        </div>
+     -->
+
+    <!-- <div class="main-container"> -->
+    <div class="left-container">
+        <div class="left-container-area">
+            <ul>
+                <li><span class="list-header">MAIN</span></li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-filter_hdr"></i>
+                        <span class="list-item-text">Dashboard</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-shopping_basket"></i>
+                        <span class="list-item-text">E-Commerce</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-apps"></i>
+                        <span class="list-item-text">Apps</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-flag"></i>
+                        <span class="list-item-text">Widgets</span>
+                    </div>
+                </li>
+                <li>
+                    <hr>
+                </li>
+                <li>
+                    <span class="list-header">COMPONENT</span>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-phonelink_setup"></i>
+                        <span class="list-item-text">UI Elements</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-create"></i>
+                        <span class="list-item-text">Forms</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-donut_large"></i>
+                        <span class="list-item-text">Charts</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-format_size"></i>
+                        <span class="list-item-text">Tables</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-map"></i>
+                        <span class="list-item-text">Icons</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-wb_iridescent"></i>
+                        <span class="list-item-text">Maps</span>
+                    </div>
+                </li>
+                <li>
+                    <hr>
+                </li>
+                <li>
+                    <span class="list-header">FEATURED</span>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-pages"></i>
+                        <span class="list-item-text">Special Pages</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-book"></i>
+                        <span class="list-item-text">Documentation</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <i class="icon-filter_list"></i>
+                        <span class="list-item-text">Multilevel</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="right-container">
+        <div class="right-container-area">
+            <div class="item" id="item-card1">
+                <div>
+                    <span class="item-score">914,001</span>
+                    <span class="item-category">VISITS</span>
+                </div>
+                <div>
+                    <i class="icon-user-check"></i>
+                </div>
+            </div>
+            <div class="item" id="item-card2">
+                <div>
+                    <span class="item-score">46.41%</span>
+                    <span class="item-category">BOUNCE RATE</span>
+                </div>
+                <div>
+                    <i class="icon-controller-fast-backward"></i>
+                </div>
+            </div>
+            <div class="item" id="item-card3">
+                <div>
+                    <span class="item-score">4,054,876</span>
+                    <span class="item-category">PAGEVIEWS</span>
+                </div>
+                <div>
+                    <i class="icon-stack"></i>
+                </div>
+            </div>
+            <div class="item" id="item-card4">
+                <div>
+                    <span class="item-score">46.43%</span>
+                    <span class="item-category">GROWTH RATE</span>
+                </div>
+                <div>
+                    <img src="/task/images/canvas.png" alt="">
+                </div>
+            </div>
+            <div class="item" id="item5">
+                <div>
+                    <h6>user statistics</h6>
+                </div>
+                <div class="toggle-btn">
+                        <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+                <div>
+                    <!-- <svg height="293" version="1.1" width="577" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;">
+                        <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc>
+                        <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="34.64999961853027"
+                            y="251.19999885559082" text-anchor="end" font-family="Poppins" font-size="12px"
+                            stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal">
+                            <tspan dy="4.399998664855957" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0
+                            </tspan>
+                        </text><text x="34.64999961853027" y="194.64999914169312" text-anchor="end"
+                            font-family="Poppins" font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal">
+                            <tspan dy="4.4000020027160645" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">75
+                            </tspan>
+                        </text><text x="34.64999961853027" y="138.0999994277954" text-anchor="end" font-family="Poppins"
+                            font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal">
+                            <tspan dy="4.399997711181641" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">150
+                            </tspan>
+                        </text><text x="34.64999961853027" y="81.5499997138977" text-anchor="end" font-family="Poppins"
+                            font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal">
+                            <tspan dy="4.400001049041748" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">225
+                            </tspan>
+                        </text><text x="34.64999961853027" y="25" text-anchor="end" font-family="Poppins"
+                            font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal">
+                            <tspan dy="4.399999618530273" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">300
+                            </tspan>
+                        </text><text x="552" y="263.6999988555908" text-anchor="middle" font-family="Poppins"
+                            font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,8.4)">
+                            <tspan dy="4.399998664855957" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Sat
+                            </tspan>
+                        </text><text x="467.858333269755" y="263.6999988555908" text-anchor="middle"
+                            font-family="Poppins" font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,8.4)">
+                            <tspan dy="4.399998664855957" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Fri
+                            </tspan>
+                        </text><text x="383.7166665395101" y="263.6999988555908" text-anchor="middle"
+                            font-family="Poppins" font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,8.4)">
+                            <tspan dy="4.399998664855957" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Thu
+                            </tspan>
+                        </text><text x="299.57499980926514" y="263.6999988555908" text-anchor="middle"
+                            font-family="Poppins" font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,8.4)">
+                            <tspan dy="4.399998664855957" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Wed
+                            </tspan>
+                        </text><text x="215.43333307902017" y="263.6999988555908" text-anchor="middle"
+                            font-family="Poppins" font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,8.4)">
+                            <tspan dy="4.399998664855957" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Tue
+                            </tspan>
+                        </text><text x="131.2916663487752" y="263.6999988555908" text-anchor="middle"
+                            font-family="Poppins" font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,8.4)">
+                            <tspan dy="4.399998664855957" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Mon
+                            </tspan>
+                        </text><text x="47.14999961853027" y="263.6999988555908" text-anchor="middle"
+                            font-family="Poppins" font-size="12px" stroke="none" fill="#878787"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Poppins; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,8.4)">
+                            <tspan dy="4.399998664855957" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">sunday
+                            </tspan>
+                        </text>
+                        <path fill="#5bd2ab" stroke="none"
+                            d="M47.14999961853027,243.6599988937378C68.18541630109151,221.0399990081787,110.25624966621398,159.77749931812286,131.2916663487752,153.17999935150146C152.32708303133646,146.58249938488007,194.39791639645892,185.22499918937683,215.43333307902017,190.8799991607666C236.46874976158142,196.53499913215637,278.5395831267039,207.8449990749359,299.57499980926514,198.41999912261963C320.61041649182636,188.99499917030334,362.68124985694885,118.77874952554703,383.7166665395101,115.47999954223633C404.7520832220713,112.18124955892563,446.8229165871938,178.62749922275543,467.858333269755,172.02999925613403C488.8937499523163,165.43249928951263,530.9645833174387,90.03249967098236,552,62.69999980926514L552,251.19999885559082L47.14999961853027,251.19999885559082Z"
+                            fill-opacity="0.6"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0.6;"></path>
+                        <path fill="none" stroke="#2ecd99"
+                            d="M47.14999961853027,243.6599988937378C68.18541630109151,221.0399990081787,110.25624966621398,159.77749931812286,131.2916663487752,153.17999935150146C152.32708303133646,146.58249938488007,194.39791639645892,185.22499918937683,215.43333307902017,190.8799991607666C236.46874976158142,196.53499913215637,278.5395831267039,207.8449990749359,299.57499980926514,198.41999912261963C320.61041649182636,188.99499917030334,362.68124985694885,118.77874952554703,383.7166665395101,115.47999954223633C404.7520832220713,112.18124955892563,446.8229165871938,178.62749922275543,467.858333269755,172.02999925613403C488.8937499523163,165.43249928951263,530.9645833174387,90.03249967098236,552,62.69999980926514"
+                            stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <circle cx="47.14999961853027" cy="243.6599988937378" r="0" fill="#2ecd99" stroke="#2ecd99"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="131.2916663487752" cy="153.17999935150146" r="0" fill="#2ecd99" stroke="#2ecd99"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="215.43333307902017" cy="190.8799991607666" r="0" fill="#2ecd99" stroke="#2ecd99"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="299.57499980926514" cy="198.41999912261963" r="0" fill="#2ecd99" stroke="#2ecd99"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="383.7166665395101" cy="115.47999954223633" r="0" fill="#2ecd99" stroke="#2ecd99"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="467.858333269755" cy="172.02999925613403" r="0" fill="#2ecd99" stroke="#2ecd99"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="552" cy="62.69999980926514" r="0" fill="#2ecd99" stroke="#2ecd99" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <path fill="#89bbe8" stroke="none"
+                            d="M47.14999961853027,190.8799991607666C68.18541630109151,187.1099991798401,110.25624966621398,171.0874992609024,131.2916663487752,175.79999923706055C152.32708303133646,180.5124992132187,194.39791639645892,238.00499892234802,215.43333307902017,228.57999897003174C236.46874976158142,219.15499901771545,278.5395831267039,102.28499960899353,299.57499980926514,100.39999961853027C320.61041649182636,98.51499962806702,362.68124985694885,210.6724990606308,383.7166665395101,213.49999904632568C404.7520832220713,216.32749903202057,446.8229165871938,132.44499945640564,467.858333269755,123.01999950408936C488.8937499523163,113.59499955177307,530.9645833174387,134.3299994468689,552,138.0999994277954L552,251.19999885559082L47.14999961853027,251.19999885559082Z"
+                            fill-opacity="0.6"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0.6;"></path>
+                        <path fill="none" stroke="#4e9de6"
+                            d="M47.14999961853027,190.8799991607666C68.18541630109151,187.1099991798401,110.25624966621398,171.0874992609024,131.2916663487752,175.79999923706055C152.32708303133646,180.5124992132187,194.39791639645892,238.00499892234802,215.43333307902017,228.57999897003174C236.46874976158142,219.15499901771545,278.5395831267039,102.28499960899353,299.57499980926514,100.39999961853027C320.61041649182636,98.51499962806702,362.68124985694885,210.6724990606308,383.7166665395101,213.49999904632568C404.7520832220713,216.32749903202057,446.8229165871938,132.44499945640564,467.858333269755,123.01999950408936C488.8937499523163,113.59499955177307,530.9645833174387,134.3299994468689,552,138.0999994277954"
+                            stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <circle cx="47.14999961853027" cy="190.8799991607666" r="0" fill="#4e9de6" stroke="#4e9de6"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="131.2916663487752" cy="175.79999923706055" r="0" fill="#4e9de6" stroke="#4e9de6"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="215.43333307902017" cy="228.57999897003174" r="0" fill="#4e9de6" stroke="#4e9de6"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="299.57499980926514" cy="100.39999961853027" r="0" fill="#4e9de6" stroke="#4e9de6"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="383.7166665395101" cy="213.49999904632568" r="0" fill="#4e9de6" stroke="#4e9de6"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="467.858333269755" cy="123.01999950408936" r="0" fill="#4e9de6" stroke="#4e9de6"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="552" cy="138.0999994277954" r="0" fill="#4e9de6" stroke="#4e9de6" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <path fill="#eed380" stroke="none"
+                            d="M47.14999961853027,236.11999893188477C68.18541630109151,224.80999898910522,110.25624966621398,195.59249913692474,131.2916663487752,190.8799991607666C152.32708303133646,186.16749918460846,194.39791639645892,204.0749990940094,215.43333307902017,198.41999912261963C236.46874976158142,192.76499915122986,278.5395831267039,152.23749935626984,299.57499980926514,145.63999938964844C320.61041649182636,139.04249942302704,362.68124985694885,139.98499941825867,383.7166665395101,145.63999938964844C404.7520832220713,151.2949993610382,446.8229165871938,196.53499913215637,467.858333269755,190.8799991607666C488.8937499523163,185.22499918937683,530.9645833174387,123.01999950408936,552,100.39999961853027L552,251.19999885559082L47.14999961853027,251.19999885559082Z"
+                            fill-opacity="0.6"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0.6;"></path>
+                        <path fill="none" stroke="#f0c541"
+                            d="M47.14999961853027,236.11999893188477C68.18541630109151,224.80999898910522,110.25624966621398,195.59249913692474,131.2916663487752,190.8799991607666C152.32708303133646,186.16749918460846,194.39791639645892,204.0749990940094,215.43333307902017,198.41999912261963C236.46874976158142,192.76499915122986,278.5395831267039,152.23749935626984,299.57499980926514,145.63999938964844C320.61041649182636,139.04249942302704,362.68124985694885,139.98499941825867,383.7166665395101,145.63999938964844C404.7520832220713,151.2949993610382,446.8229165871938,196.53499913215637,467.858333269755,190.8799991607666C488.8937499523163,185.22499918937683,530.9645833174387,123.01999950408936,552,100.39999961853027"
+                            stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <circle cx="47.14999961853027" cy="236.11999893188477" r="0" fill="#f0c541" stroke="#f0c541"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="131.2916663487752" cy="190.8799991607666" r="0" fill="#f0c541" stroke="#f0c541"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="215.43333307902017" cy="198.41999912261963" r="0" fill="#f0c541" stroke="#f0c541"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="299.57499980926514" cy="145.63999938964844" r="0" fill="#f0c541" stroke="#f0c541"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="383.7166665395101" cy="145.63999938964844" r="0" fill="#f0c541" stroke="#f0c541"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="467.858333269755" cy="190.8799991607666" r="0" fill="#f0c541" stroke="#f0c541"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="552" cy="100.39999961853027" r="0" fill="#f0c541" stroke="#f0c541" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                    </svg> -->
+
+                    <div>
+                        <canvas id="myChart" width="577" height="293" aria-label="Hello ARIA World" ></canvas>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <span class="item-category">Weekly Users</span><br>
+                            <span class="item5-count">324,222</span>
+                        </li>
+                        <li>
+                            <span class="item-category">Monthly Users</span><br>
+                            <span class="item5-count">123,432</span>
+                        </li>
+                        <li>
+                            <span class="item-category">Trend</span><br>
+                            <i class="icon-trending-up"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="item" id="item-bar1">
+                <div>
+                    <span class="item-title">customer satisfaction</span><br>
+                    <span class="item-count">93.13%</span><br>
+                    <div class="progress-bar progress-bar-success wow animated progress-animated" role="progressbar"
+                        aria-valuenow="93.12" aria-valuemin="0" aria-valuemax="100" style="width: 93.12%;">
+                    </div>
+                    <ul>
+                        <li>
+                            <span class="item-category">Previous</span>
+                            <span>79.82</span>
+                        </li>
+                        <li>
+                            <span class="item-category">% Change</span>
+                            <span>+14.29</span>
+                        </li>
+                        <li>
+                            <span class="item-category">Trend</span>
+                            <i class="icon-trending-up"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="item" id="item-bar2">
+                <!-- <div class="pull-card heading">
+                     <div class="pull-left">
+                        <h6>browser stats</h6>
+                    </div>
+                    <div class="pull-right">
+                        <i class="icon-file_download"></i>
+                        <i class="icon-clear"></i>
+                    </div>
+                    </div> -->
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="pull-left">
+                                <h6>browser stats</h6>
+                            </th>
+                            <th class="pull-right">
+                                <i class="icon-file_download"></i>
+                                <i class="icon-clear"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pull-left">google chrome </td>
+                            <td class="pull-right1">50%</td>
+                        </tr>
+                        <hr class="row">
+                        <tr>
+                            <td class="pull-left">mozila firefox</td>
+                            <td class="pull-right2">10%</td>
+                        </tr>
+                        <hr>
+                        <tr>
+                            <td class="pull-left">Internet explorer</td>
+                            <td class="pull-right3">30%</td>
+                        </tr>
+                        <tr>
+                            <td class="pull-left">Safari</td>
+                            <td class="pull-right4">10%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="item" id="item8">
+                <div class="pannel-heading">
+                    <div class="pannel-left">
+                        <h6>Visit by Traffic Types</h6>
+                    </div>
+                    <div class="pannel-right">
+                        <i class="icon-replay"></i>
+                        <i class="icon-dots-three-vertical"></i>
+                    </div>
+                </div>
+                <!-- <img src="./images/map.png" alt="Image not available"> -->
+                
+                        <canvas id="myPchart" ></canvas>
+        
+                <!-- <div class="pannel-body">
+                            <div>
+                                <i class="icon-crop_square"></i>
+                            </div>
+                            <div>
+                                <h5>44.46% organic</h5>
+                                <p>356 visits</p>
+                            </div>
+                             <div>
+                                <img class="pannel-img"
+                                src="./images/chart.png" alt="Image not available">
+                            </div> 
+                        </div>  -->
+                <table class="pannel-body">
+                    <tbody>
+                        <tr>
+                            <td class="pannel-icon"><i class="icon-crop_square"></i></td>
+                            <td>
+                                <span>44.46% organic</span><br>
+                                <span class="pannel-count">356 visits</span>
+                            </td>
+                            <!-- <td class="pannel-img"><img  src="/task/images/chart.png" alt="Image not available" width="10vw" height="10vh"></td>  -->
+                        </tr>
+                        <tr>
+                            <td class="pannel-icon1"><i class="icon-crop_square"></i></td>
+                            <td>
+                                <span>5.54% Refrral</span><br>
+                                <span class="pannel-count">36 visits</span>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="pannel-icon2"><i class="icon-crop_square"></i></td>
+                            <td>
+                                <span>50% Other</span><br>
+                                <span class="pannel-count">245 visits</span>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="item" id="item9">
+                <div class="advertise-heading">
+                    <div class="pull-left">
+                        <h6>Advertising & Promotions</h6>
+                    </div>
+                    <div class="pull-right" id="advertise-right">
+                        <i class="icon-replay"></i>
+                        <i class="icon-dots-three-vertical"></i>
+                    </div>
+                </div>
+                  <!-- <img class="item9-img" src="./images/graph.png" alt="Image not available"> -->
+                 <canvas id="myBchart" ></canvas> 
+                 
+                <div class="label-chart">
+                    <div class="label-square">
+                        <span><i class="icon-crop_square"></i></span>
+                        <span class="label-content">Active</span>
+                    </div>
+                    <div class="label-square2">
+                        <span><i class="icon-crop_square"></i></span>
+                        <span>Closed</span>
+                    </div>
+                    <div class="label-square3">
+                        <span><i class="icon-crop_square"></i></span>
+                        <span>Hold</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item" id="item10">
+                <div class="pull-heading">
+                    <div class="pull-left">
+                        <h6>social campaigns</h6>
+                    </div>
+                    <div class="pull-right">
+                        <i class="icon-replay"></i>
+                        <i class="icon-fullscreen"></i>
+                        <i class="icon-dots-three-vertical"></i>
+                    </div>
+                </div>
+                <!-- <div class="socialmedia-table"> -->
+                        <table class="item10-table">
+                    <thead>
+                        <tr class="social-media">
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Avatar</th>
+                        </tr>
+                        
+                    </thead>
+                     <tbody id="user-data">
+                        <tr class="social-media">
+                            <td class="u_id"></td>
+                            <td class="first-name"></td>
+                            <td class="last-name"></td>
+                            <td class="email"></td>
+                            <td class="avatar"></td>
+                          </tr>
+
+                          <tr class="social-media">
+                            <td class="u_id"></td>
+                            <td class="first-name"></td>
+                            <td class="last-name"></td>
+                            <td class="email"></td>
+                            <td class="avatar"></td>
+                          </tr>
+
+                          <tr class="social-media">
+                            <td class="u_id"></td>
+                            <td class="first-name"></td>
+                            <td class="last-name"></td>
+                            <td class="email"></td>
+                            <td class="avatar"></td>
+                          </tr>
+
+                          <tr class="social-media">
+                            <td class="u_id"></td>
+                            <td class="first-name"></td>
+                            <td class="last-name"></td>
+                            <td class="email"></td>
+                            <td class="avatar"></td>
+                          </tr>
+                          <tr class="social-media">
+                            <td class="u_id"></td>
+                            <td class="first-name"></td>
+                            <td class="last-name"></td>
+                            <td class="email"></td>
+                            <td class="avatar"></td>
+                          </tr>
+
+                    </tbody> 
+                        </table>
+                 <!-- </div> -->
+                 <div class="arrow">
+                 <button id="leftarrow">&lt;</button>
+                 <button id="first-btn" class="active-btn">1</button>
+                 <button id="second-btn">2</button>
+                 <button id="third-btn">3</button>
+                 <p id="extend">...</p>
+                 <button id="eight-btn"></button>
+                 <button id="nine-btn"></button>
+                 <button id="last-btn"></button>
+                 <button id="rightarrow">&gt;</button>
+                 </div>
+                <!-- <div id="pagination"></div> -->
+            </div>
+        </div>
+        <footer>
+            <p>2017 © .Pampered by Hencework</p>
+        </footer>
+    </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="./js/pagination.js"></script> -->
+    <script src="./js/script.js"></script>
+
+
+</body>
+
+</html>

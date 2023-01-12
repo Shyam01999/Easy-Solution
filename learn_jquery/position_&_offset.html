@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery tutorials</title>
+    <style>
+      #box {
+        background-color: pink;
+        padding: 10px;
+        border: 1px solid #000;
+      }
+
+      .test {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jquery position() & offset().</h1>
+
+    <div id="box">
+      <h2>Test Box</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+        praesentium esse fugiat tempora quae delectus unde architecto, vitae
+        quidem iusto? Magni porro optio quidem delectus ab nemo quae corporis
+        fuga.
+      </p>
+    </div>
+    <br />
+    <button id="position">position</button>
+    <button id="offset">offset</button>
+
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#position").click(function () {
+          console.log($('#box h2').position());
+          
+        });
+
+        $("#offset").click(function () {
+          console.log($('#box h2').offset({top:0 , left:0}));
+          $('#box h2').offset({top:100 , left:100});
+        });
+      });
+    </script>
+  </body>
+</html>

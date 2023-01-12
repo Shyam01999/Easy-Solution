@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery tutorials</title>
+    <style>
+      #box {
+        background-color: pink;
+        width: 80rem;
+        height: 20rem;
+      }
+
+      h2{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jquery event.preventDefault property implementation.</h1>
+
+    <div id="box">
+        <a href="https://www.google.co.in/" id="result">Click here to go to google</a>
+        <br><br>
+        <a href="https://www.youtube.com/">Click here to go to youtube</a>
+    </div>
+    <br>
+    <h3></h3>
+    
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#result').click(function(event){
+           event.preventDefault();
+
+           let a = event.isDefaultPrevented();
+           $("h3").html(a);
+        })
+
+      })    
+    </script>
+  </body>
+</html>

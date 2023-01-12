@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        text-decoration: underline;
+        color: blue;
+    }
+
+    iframe{
+        border: 3px solid red;
+        height: 400px;
+        width: 800px;
+    }
+
+   
+</style>
+<body>
+    <!-- iframe  -->
+    <h1>Iframe in html</h1>
+    <p>I frame is used to display a web page inside another web page.</p>
+    <iframe src="./iframe.html" name="iframe_a" ></iframe>
+    <p><a href="https://i.stack.imgur.com/od6Ln.jpg" target="iframe_a" >Click here to get an image </a></p>
+    <h1>Java Script</h1>
+    <h3>Hello </h3>
+    <h3 id="demo"></h3>
+    <button onclick="myFunction()">Click Me</button>
+    
+
+
+
+    
+    <script>
+        function myFunction(){
+            document.getElementById("demo").innerHTML="Nice to Meet you!!"
+        }
+    </script>
+
+
+</body>
+</html>
