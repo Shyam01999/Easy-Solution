@@ -190,6 +190,7 @@ const ul = document.querySelector(".content ul");
 input = ul.querySelector("input");
 const allList = document.querySelectorAll(".list-cont .list")
 const closeAll = document.querySelector('#close');
+const dropdownCont = document.querySelector(".list-cont")
 
 let tags = [];
 
@@ -201,7 +202,7 @@ function createTag() {
     let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
     ul.insertAdjacentHTML("afterbegin", liTag); //adding liTag inside ul tag.
   })
-
+  // dropdownCont.style.display = showListCont();  
 
 }
 
@@ -252,7 +253,7 @@ let filterItem = searchValue => {
 }
 
 function showListCont() {
-  if (document.querySelector(".list-cont").style.display == "block") {
+  if (dropdownCont.style.display == "block") {
     return "none";
   }
   return "block";
@@ -261,13 +262,14 @@ function showListCont() {
 input.addEventListener('keyup', addTag);
 
 document.querySelector(".content").addEventListener('click', function () {
-  document.querySelector(".list-cont").style.display = showListCont();
+  dropdownCont.style.display = showListCont();
 });
 
 allList.forEach(item => {
   item.addEventListener("click", (event) => {
     document.querySelector(".content ul input").value = "";
     // event.path[3].children[0].children[0].children[0].value="";
+    dropdownCont.style.display = showListCont();
 
     if (!tags.includes(item.innerText)) {
       tags.push(item.innerText);
@@ -290,7 +292,7 @@ closeAll.addEventListener('click', function () {
   ul.querySelectorAll("li").forEach(li => { //removing all liTags
     li.remove();
   })
-  
+
   document.querySelectorAll(".new-list").forEach(item  => {
     // console.log(item) 
       item.remove();
