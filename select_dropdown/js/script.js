@@ -187,9 +187,7 @@ const filterList = searchTerm => {
 // Multitag Functionality
 const ul = document.querySelector(".content ul");
 input = ul.querySelector("input");
-const allList = document.querySelectorAll(".list-cont .list")
-// let oldNewAllList = document.querySelectorAll(".list-cont ul li")
-// console.log(oldNewAllList);
+const allList = document.querySelectorAll(".list-cont .list");
 const closeAll = document.querySelector('#close');
 const dropdownCont = document.querySelector(".list-cont")
 
@@ -220,19 +218,25 @@ function remove(element, tag) {
 }
 
 function addTag(event) {
-  if (event.key == "Enter") { // May, May
-    let tag = event.target.value.replace(/\s+/g, ' ');//removing unwanted space from user tag
-    if (tag.length > 1 && !tags.includes(tag)) {
-      // console.log(tag.split(" ")); // [May], [May, June], [May, June]
-      tag.split(' ').forEach(tag => {
-        tags.push(tag) //adding each tag to array
-        let liElement = `<li class="list new-list">${tag}</li>`
-        document.querySelector(".list-cont ul").insertAdjacentHTML("beforeend", liElement);
-        createTag();
-      });
+  
+    if (event.key == "Enter") { // May, May
+      let tag = event.target.value.replace(/\s+/g, ' ');//removing unwanted space from user tag
+      if (tag.length > 1 && !tags.includes(tag)) {
+        console.log(tags.length)
+        // console.log(tag.split(" ")); // [May], [May, June], [May, June]
+        tag.split(' ').forEach(tag => {
+          tags.push(tag) //adding each tag to array
+          let liElement = `<li class="list new-list">${tag}</li>`
+          document.querySelector(".list-cont ul").insertAdjacentHTML("beforeend", liElement);
+          createTag();
+          count++;
+        });
+      }
+      event.target.value = "";
     }
-    event.target.value = "";
-  }
+    
+  
+ 
   filterItem(event.target.value);
 
 }
@@ -240,7 +244,7 @@ function addTag(event) {
 let filterItem = searchValue => {
   searchValue = searchValue.toLowerCase();
   document.querySelectorAll(".list-cont ul li").forEach(item => {
-    console.log(item)
+    // console.log(item)
     let listTerm = item.innerText.toLowerCase();
     if (listTerm.indexOf(searchValue) != -1) {
       item.style.display = "block";
@@ -266,24 +270,33 @@ document.querySelector(".content").addEventListener('click', function () {
 });
 
 allList.forEach(item => {
-  item.addEventListener("click", (event) => {
-    document.querySelector(".content ul input").value = "";
-    // event.path[3].children[0].children[0].children[0].value="";
-    dropdownCont.style.display = showListCont();
-
-    if (!tags.includes(item.innerText)) {
-      tags.push(item.innerText);
-      ul.querySelectorAll("li").forEach(li => {
-        li.remove();
-      })
-      tags.slice().reverse().forEach(tag => {
-        let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
-        ul.insertAdjacentHTML("afterbegin", liTag);
-      });
-
-    }
-
-  })
+  // console.log(item.innerText)
+  // let count = 0;
+  if(count <= 2){
+    item.addEventListener("click", (event) => {
+      // console.log("List item clicked")
+      document.querySelector(".content ul input").value = "";
+      // event.path[3].children[0].children[0].children[0].value="";
+      dropdownCont.style.display = showListCont();
+  
+      if (!tags.includes(item.innerText)) {
+        tags.push(item.innerText);
+        ul.querySelectorAll("li").forEach(li => {
+          li.remove();
+        })
+        tags.slice().reverse().forEach(tag => {
+          let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
+          ul.insertAdjacentHTML("afterbegin", liTag);
+        });
+  
+      }
+  
+    })
+    count++;
+  }
+  
+  // console.log(count)
+  
 
 })
 
@@ -298,6 +311,46 @@ closeAll.addEventListener('click', function () {
     item.remove();
   })
 })
+
+let data = [
+  {
+    id: 1,
+    name: "Shyam"
+  },
+  {
+    id: 2,
+    name: "Binu"
+  },
+  {
+    id: 3,
+    name: "Rasmi"
+  },
+  {
+    id: 4,
+    name: "Monika"
+  }
+]
+
+function showObjectData() {
+  let liTags = "";
+  data.map(item => {
+    console.log(item.name)
+    liTags += `<li class="list">${item.name}</li>`;
+  })
+  document.querySelector(".list-cont ul").innerHTML = liTags;
+
+  // data.map(list =>{
+  //   allList.forEach(item => {
+  //     item.innerText = "";
+  //      if(item.innerText != list.name){
+  //       item.innerText = list.name;
+  //     }
+  //   })
+  // })
+
+}
+
+// showObjectData();
 
 
 
