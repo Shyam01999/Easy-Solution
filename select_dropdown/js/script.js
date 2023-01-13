@@ -197,15 +197,23 @@ function createTag() {
   ul.querySelectorAll("li").forEach(li => {
     li.remove();
   })
-  tags.slice().reverse().forEach(tag => {
-    let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
-    ul.insertAdjacentHTML("afterbegin", liTag); //adding liTag inside ul tag.
-  })
+  // if(count < 4){
+    tags.slice().reverse().forEach(tag => {
+      let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
+      ul.insertAdjacentHTML("afterbegin", liTag); //adding liTag inside ul tag.
+    })
+  // }
+  // else if(count > 3){
+  //   document.querySelector("#errorMsg").innerText = `You can only create ${count-1} options`; 
+  // }
+  
   // dropdownCont.style.display = showListCont();  
-
+  closeAll.style.display = "block";
 }
 
 function remove(element, tag) {
+  --count;
+  document.querySelector("#errorMsg").innerText = ``;
   let index = tags.indexOf(tag);//getting removing tag index
   tags = [...tags.slice(0, index), ...tags.slice(index + 1)];//remove or exclude selected tag
   element.parentElement.remove();//removing li of removed tag
@@ -214,31 +222,30 @@ function remove(element, tag) {
     if (item.innerText === tag) {
       item.remove();
     }
+    
   })
+
+
 }
 
 function addTag(event) {
-  
-    if (event.key == "Enter") { // May, May
-      let tag = event.target.value.replace(/\s+/g, ' ');//removing unwanted space from user tag
-      if (tag.length > 1 && !tags.includes(tag)) {
-        console.log(tags.length)
-        // console.log(tag.split(" ")); // [May], [May, June], [May, June]
-        tag.split(' ').forEach(tag => {
-          tags.push(tag) //adding each tag to array
-          let liElement = `<li class="list new-list">${tag}</li>`
-          document.querySelector(".list-cont ul").insertAdjacentHTML("beforeend", liElement);
-          createTag();
-          count++;
-        });
-      }
-      event.target.value = "";
-    }
-    
-  
- 
-  filterItem(event.target.value);
 
+  if (event.key == "Enter") { // May, May
+    let tag = event.target.value.replace(/\s+/g, ' ');//removing unwanted space from user tag
+    if (tag.length > 1 && !tags.includes(tag)) {
+      console.log(tags.length)
+      // console.log(tag.split(" ")); // [May], [May, June], [May, June]
+      tag.split(' ').forEach(tag => {
+        tags.push(tag) //adding each tag to array
+        let liElement = `<li class="list new-list">${tag}</li>`
+        document.querySelector(".list-cont ul").insertAdjacentHTML("beforeend", liElement);
+        createTag();
+        count++;
+      });
+    }
+    event.target.value = "";
+  }
+  filterItem(event.target.value);
 }
 
 let filterItem = searchValue => {
@@ -263,22 +270,33 @@ function showListCont() {
   return "block";
 }
 
+function closeAllPopop(){
+  if (closeAll.style.display == "block") {
+    return "none";
+  }
+  return "block";
+}
+
 input.addEventListener('keyup', addTag);
 
 document.querySelector(".content").addEventListener('click', function () {
   dropdownCont.style.display = showListCont();
 });
 
+let count = 1;
 allList.forEach(item => {
-  // console.log(item.innerText)
-  // let count = 0;
-  if(count <= 2){
-    item.addEventListener("click", (event) => {
-      // console.log("List item clicked")
+
+  item.addEventListener("click", (event) => {
+    // console.log("List item clicked")
+    console.log(item.innerText);
+    console.log(item.id);
+    if (count < 4) {  
+      // console.log(count)
+      closeAll.style.display = "block";
       document.querySelector(".content ul input").value = "";
       // event.path[3].children[0].children[0].children[0].value="";
       dropdownCont.style.display = showListCont();
-  
+
       if (!tags.includes(item.innerText)) {
         tags.push(item.innerText);
         ul.querySelectorAll("li").forEach(li => {
@@ -288,19 +306,19 @@ allList.forEach(item => {
           let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
           ul.insertAdjacentHTML("afterbegin", liTag);
         });
-  
-      }
-  
-    })
-    count++;
-  }
-  
-  // console.log(count)
-  
 
+      }
+      count = count + 1;
+    }
+    else if (count > 3) {
+      document.querySelector("#errorMsg").innerText = `You can only select ${count-1} options`;
+     
+    }
+  })
 })
 
 closeAll.addEventListener('click', function () {
+  count = 1;
   tags.length = 0;//making array empty
   ul.querySelectorAll("li").forEach(li => { //removing all liTags
     li.remove();
@@ -310,6 +328,9 @@ closeAll.addEventListener('click', function () {
     // console.log(item) 
     item.remove();
   })
+  
+  document.querySelector("#errorMsg").innerText = ``;
+  closeAll.style.display = "none";
 })
 
 let data = [
@@ -332,22 +353,11 @@ let data = [
 ]
 
 function showObjectData() {
-  let liTags = "";
-  data.map(item => {
-    console.log(item.name)
-    liTags += `<li class="list">${item.name}</li>`;
-  })
-  document.querySelector(".list-cont ul").innerHTML = liTags;
-
-  // data.map(list =>{
-  //   allList.forEach(item => {
-  //     item.innerText = "";
-  //      if(item.innerText != list.name){
-  //       item.innerText = list.name;
-  //     }
-  //   })
-  // })
-
+    allList.forEach((item, index) => {
+      console.log(item); // january, febuary
+      console.log(index); //0 , 1
+      item.innerText = data[index].name; //shyam , Binu   
+    })
 }
 
 // showObjectData();

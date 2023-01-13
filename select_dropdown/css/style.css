@@ -167,6 +167,7 @@
 
  .content ul {
      display: flex;
+     align-items: center;
      flex-wrap: wrap;
      padding: 7px;
      border: 1px solid #555;
@@ -202,11 +203,15 @@
      font-size: 16px;
  }
 
- #close {
-     position: relative;
-     bottom: 0.5rem;
-     margin-left: 0.5rem;
+ #close{
+    display: none;
+    font-size: large;
+    margin-right: 0.7rem;
+    color: #555;
+    border-radius: 50%;
+    cursor: pointer;
  }
+ 
 
  .list-cont {
      display: none;
