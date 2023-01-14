@@ -3,31 +3,20 @@ $(document).ready(function () {
   let listItems = document.querySelectorAll("#dropdown1 option");
   //  let addList = true;
   var $container = $(
-    '<span class="select2 select2-container"></span>' +
+    // '<span class="select2 select2-container"></span>' +
     '<div class="selection"></div>'  // +
-    //   '<span class="dropdown-wrapper" aria-hidden="true"></span>' +
-    // '</span>'
   );
 
   $("#dropdown1").click(function () {
-
-    // if(addList == true){
-    //   $(".selection").css("display","block");
-    // }else{
-    //   $(".selection").css("display","none");
-    // }
-    // addList = !addList
     $(".selection").slideToggle();
-
-
     $($container).insertAfter(this);
 
     function init() {
-      let selectCont = $("select")
-      console.log(selectCont)
+      let selectCont = $("select");
+      // console.log(selectCont)
       let ul = `<ul class="select2-selection__rendered">`
       for (let i = 0; i < listItems.length; i++) {
-        ul += `<li class="list-items">${listItems[i].innerText}</li>`
+        ul += `<li class="list-items">${listItems[i].innerText}</li>` 
       }
       ul += `</ul>`
       // console.log(ul)
@@ -36,9 +25,9 @@ $(document).ready(function () {
       let list = document.querySelectorAll("li");
       for (let i = 0; i < list.length; i++) {
         list[i].addEventListener("click", function (e) {
-          console.log(listItems[i].innerText);
           listItems.forEach(item => {
             item.removeAttribute("selected");
+            $(".selection").toggle();
           })
           listItems[i].setAttribute("selected", true);
 
@@ -79,8 +68,6 @@ downIcon.addEventListener("click", () => {
   searchBox.value = "";
   filterList("");
 })
-
-
 
 let array = [];
 allListItems.forEach((item, index) => {
