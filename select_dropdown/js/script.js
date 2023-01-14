@@ -198,15 +198,15 @@ function createTag() {
     li.remove();
   })
   // if(count < 4){
-    tags.slice().reverse().forEach(tag => {
-      let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
-      ul.insertAdjacentHTML("afterbegin", liTag); //adding liTag inside ul tag.
-    })
+  tags.slice().reverse().forEach(tag => {
+    let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
+    ul.insertAdjacentHTML("afterbegin", liTag); //adding liTag inside ul tag.
+  })
   // }
   // else if(count > 3){
-  //   document.querySelector("#errorMsg").innerText = `You can only create ${count-1} options`; 
+
   // }
-  
+
   // dropdownCont.style.display = showListCont();  
   closeAll.style.display = "block";
 }
@@ -222,7 +222,7 @@ function remove(element, tag) {
     if (item.innerText === tag) {
       item.remove();
     }
-    
+
   })
 
 
@@ -231,16 +231,24 @@ function remove(element, tag) {
 function addTag(event) {
 
   if (event.key == "Enter") { // May, May
-    let tag = event.target.value.replace(/\s+/g, ' ');//removing unwanted space from user tag
+    let tag = event.target.value.replace(/\s+/g, '');//removing unwanted space from user tag
     if (tag.length > 1 && !tags.includes(tag)) {
-      console.log(tags.length)
+      // console.log(tags.length)
       // console.log(tag.split(" ")); // [May], [May, June], [May, June]
       tag.split(' ').forEach(tag => {
-        tags.push(tag) //adding each tag to array
-        let liElement = `<li class="list new-list">${tag}</li>`
-        document.querySelector(".list-cont ul").insertAdjacentHTML("beforeend", liElement);
-        createTag();
-        count++;
+        if (count < 4) {
+          tags.push(tag) //adding each tag to array
+          let liElement = `<li class="list new-list">${tag}</li>`
+          document.querySelector(".list-cont ul").insertAdjacentHTML("beforeend", liElement);
+          createTag();
+          count++;
+          console.log(count);//2,3,4
+        }
+        else if (count > 3) {
+          document.querySelector("#errorMsg").innerText = `You can only create ${count - 1} options`;
+        }
+
+
       });
     }
     event.target.value = "";
@@ -270,7 +278,7 @@ function showListCont() {
   return "block";
 }
 
-function closeAllPopop(){
+function closeAllPopop() {
   if (closeAll.style.display == "block") {
     return "none";
   }
@@ -290,7 +298,7 @@ allList.forEach(item => {
     // console.log("List item clicked")
     console.log(item.innerText);
     console.log(item.id);
-    if (count < 4) {  
+    if (count < 4) {
       // console.log(count)
       closeAll.style.display = "block";
       document.querySelector(".content ul input").value = "";
@@ -311,8 +319,8 @@ allList.forEach(item => {
       count = count + 1;
     }
     else if (count > 3) {
-      document.querySelector("#errorMsg").innerText = `You can only select ${count-1} options`;
-     
+      document.querySelector("#errorMsg").innerText = `You can only select ${count - 1} options`;
+
     }
   })
 })
@@ -328,7 +336,7 @@ closeAll.addEventListener('click', function () {
     // console.log(item) 
     item.remove();
   })
-  
+
   document.querySelector("#errorMsg").innerText = ``;
   closeAll.style.display = "none";
 })
@@ -353,11 +361,11 @@ let data = [
 ]
 
 function showObjectData() {
-    allList.forEach((item, index) => {
-      console.log(item); // january, febuary
-      console.log(index); //0 , 1
-      item.innerText = data[index].name; //shyam , Binu   
-    })
+  allList.forEach((item, index) => {
+    console.log(item); // january, febuary
+    console.log(index); //0 , 1
+    item.innerText = data[index].name; //shyam , Binu   
+  })
 }
 
 // showObjectData();
