@@ -16,7 +16,7 @@ $(document).ready(function () {
       // console.log(selectCont)
       let ul = `<ul class="select2-selection__rendered">`
       for (let i = 0; i < listItems.length; i++) {
-        ul += `<li class="list-items">${listItems[i].innerText}</li>` 
+        ul += `<li class="list-items">${listItems[i].innerText}</li>`
       }
       ul += `</ul>`
       // console.log(ul)
@@ -203,16 +203,14 @@ function remove(element, tag) {
   document.querySelector("#errorMsg").innerText = ``;
   let index = tags.indexOf(tag);//getting removing tag index
   tags = [...tags.slice(0, index), ...tags.slice(index + 1)];//remove or exclude selected tag
+  selectItemsArray = [...selectItemsArray.slice(0, index), ...selectItemsArray.slice(index + 1)];
   element.parentElement.remove();//removing li of removed tag
   document.querySelectorAll(".new-list").forEach(item => {
     // console.log(item)
     if (item.innerText === tag) {
       item.remove();
     }
-
   })
-
-
 }
 
 function addTag(event) {
@@ -223,7 +221,7 @@ function addTag(event) {
       // console.log(tags.length)
       // console.log(tag.split(" ")); // [May], [May, June], [May, June]
       tag.split(' ').forEach(tag => {
-        if (count < 4) {
+        if (count < 5) {
           tags.push(tag) //adding each tag to array
           let liElement = `<li class="list new-list">${tag}</li>`
           document.querySelector(".list-cont ul").insertAdjacentHTML("beforeend", liElement);
@@ -231,11 +229,9 @@ function addTag(event) {
           count++;
           console.log(count);//2,3,4
         }
-        else if (count > 3) {
+        else if (count > 4) {
           document.querySelector("#errorMsg").innerText = `You can only create ${count - 1} options`;
         }
-
-
       });
     }
     event.target.value = "";
@@ -279,24 +275,32 @@ document.querySelector(".content").addEventListener('click', function () {
 });
 
 let count = 1;
+let selectItemsArray = [];
 allList.forEach(item => {
 
   item.addEventListener("click", (event) => {
     // console.log("List item clicked")
-    console.log(item.innerText);
-    console.log(item.id);
-    if (count < 4) {
+    // console.log(item.innerText);
+    // console.log(item.id);
+    if (count < 5) {
       // console.log(count)
       closeAll.style.display = "block";
       document.querySelector(".content ul input").value = "";
       // event.path[3].children[0].children[0].children[0].value="";
       dropdownCont.style.display = showListCont();
+      selectItemsArray.push(item.id);
+      // selectItemsArray.push(item.innerText);
+      $.fn.val = function () {
+        let ulCont = $(".content ul input");
+        console.log(selectItemsArray);
+      }
 
       if (!tags.includes(item.innerText)) {
         tags.push(item.innerText);
         ul.querySelectorAll("li").forEach(li => {
           li.remove();
         })
+
         tags.slice().reverse().forEach(tag => {
           let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
           ul.insertAdjacentHTML("afterbegin", liTag);
@@ -305,16 +309,18 @@ allList.forEach(item => {
       }
       count = count + 1;
     }
-    else if (count > 3) {
+    else if (count > 4) {
       document.querySelector("#errorMsg").innerText = `You can only select ${count - 1} options`;
-
     }
   })
 })
 
+
+
 closeAll.addEventListener('click', function () {
   count = 1;
   tags.length = 0;//making array empty
+  selectItemsArray.length = 0; //Making array empty
   ul.querySelectorAll("li").forEach(li => { //removing all liTags
     li.remove();
   })
