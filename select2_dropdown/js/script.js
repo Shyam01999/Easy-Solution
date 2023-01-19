@@ -168,21 +168,21 @@ $(document).ready(function () {
     // $("#dropdown").on('select2:closing',function(){ //dropdown close event trigger
     //     console.log("closing trigger")
     // });
-    // $("#dropdown").on('select2:opening', function () { //dropdown open event trigger
-    //     console.log("opening trigger")
-    // });
+    $("#dropdown").on('select2:opening', function () { //dropdown open event trigger
+        console.log("opening trigger")
+    });
     // $("#dropdown").on('select2:open', function () { //dropdown open event trigger
     //     console.log("  open trigger")
     // });
     // $("#dropdown").on('select2:close', function () { //dropdown close event trigger
     //     console.log("  close trigger")
     // });
-    $("#dropdown").on('select2:selecting', function () { //selecting and select botha are same
-        console.log(" selecting trigger")
-    });
-    $("#dropdown").on('select2:unselecting', function () { //removing the selected elements
-        console.log(" unselecting trigger")
-    });
+    // $("#dropdown").on('select2:selecting', function () { //selecting and select botha are same
+    //     console.log(" selecting trigger")
+    // });
+    // $("#dropdown").on('select2:unselecting', function () { //removing the selected elements
+    //     console.log(" unselecting trigger")
+    // });
     // $("#dropdown").on('select2:clear', function () { //allowClear true and it will clear all elements from input box.
     //     console.log("clear trigger")                 //clear & clearing both are same
     // });
