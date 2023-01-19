@@ -172,6 +172,7 @@ const filterList = searchTerm => {
 }
 
 // Multitag Functionality
+
 const ul = document.querySelector(".content ul");
 input = ul.querySelector("input");
 const allList = document.querySelectorAll(".list-cont .list");
@@ -259,6 +260,8 @@ function showListCont() {
     return "none";
   }
   return "block";
+ 
+  
 }
 
 function closeAllPopop() {
@@ -272,6 +275,7 @@ input.addEventListener('keyup', addTag);
 
 document.querySelector(".content").addEventListener('click', function () {
   dropdownCont.style.display = showListCont();
+  
 });
 
 let count = 1;
@@ -355,13 +359,35 @@ let data = [
 
 function showObjectData() {
   allList.forEach((item, index) => {
-    console.log(item); // january, febuary
-    console.log(index); //0 , 1
+    // console.log(item); // january, febuary
+    // console.log(data[index].name); //0 , 1
     item.innerText = data[index].name; //shyam , Binu   
   })
 }
 
 // showObjectData();
+
+//custom event
+
+$(ul).bind("open",function(event){
+  console.log("open event trigger")
+})
+$(ul).bind("close",function(){
+  console.log("close event trigger");
+})
+$(ul).click(function(){
+  if(dropdownCont.style.display == "block"){
+    $(ul).trigger("close");
+  }
+  else{
+    $(ul).trigger("open");
+  }
+})  
+
+$(allList).click(function(){
+  $(ul).trigger("close");
+})
+
 
 
 
