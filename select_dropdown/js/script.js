@@ -212,6 +212,12 @@ function remove(element, tag) {
       item.remove();
     }
   })
+
+  $(this).bind("unselect",function(){
+    console.log("unselect trigger");
+  })
+
+  $(this).trigger("unselect");
 }
 
 function addTag(event) {
@@ -319,8 +325,6 @@ allList.forEach(item => {
   })
 })
 
-
-
 closeAll.addEventListener('click', function () {
   count = 1;
   tags.length = 0;//making array empty
@@ -336,6 +340,12 @@ closeAll.addEventListener('click', function () {
 
   document.querySelector("#errorMsg").innerText = ``;
   closeAll.style.display = "none";
+
+  $(this).bind("clear",function(){
+    console.log("clear trigger")
+  })
+
+  $(this).trigger("clear");
 })
 
 let data = [
@@ -368,13 +378,16 @@ function showObjectData() {
 // showObjectData();
 
 //custom event
-
 $(ul).bind("open",function(event){
-  console.log("open event trigger")
+  console.log("open trigger");
 })
 $(ul).bind("close",function(){
-  console.log("close event trigger");
+  console.log("close trigger");
 })
+$(ul).bind("select",function(){
+  console.log("select trigger");
+})
+
 $(ul).click(function(){
   if(dropdownCont.style.display == "block"){
     $(ul).trigger("close");
@@ -382,11 +395,13 @@ $(ul).click(function(){
   else{
     $(ul).trigger("open");
   }
-})  
-
+})
 $(allList).click(function(){
+  $(ul).trigger("select");
   $(ul).trigger("close");
 })
+
+
 
 
 
