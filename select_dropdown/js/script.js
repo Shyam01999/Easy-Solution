@@ -399,6 +399,7 @@ $(ul).click(function(){
 $(allList).click(function(){
   $(ul).trigger("select");
   $(ul).trigger("close");
+  
 })
 
 
