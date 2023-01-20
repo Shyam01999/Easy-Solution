@@ -216,8 +216,26 @@ function remove(element, tag) {
   $(this).bind("unselect", function () {
     console.log("unselect trigger");
   })
+  $(this).bind("unselecting", function () {
+    console.log("unselecting trigger");
+  })
 
+  $(this).trigger("unselecting");
   $(this).trigger("unselect");
+  //   $(this).trigger("unselect");
+  // if (dropdownCont.style.display == "block") {
+  //   $(this).trigger("unselecting");
+  //   $(ul).trigger("closing");
+  //   $(ul).trigger("close");
+  //   $(this).trigger("unselect");
+  // }
+  // else {
+  //   $(this).trigger("unselecting");
+  //   $(ul).trigger("opening");
+  //   $(ul).trigger("open");
+  //   $(this).trigger("unselect");
+  // }
+ 
 }
 
 function addTag(event) {
@@ -381,16 +399,16 @@ function showObjectData() {
 $(ul).on("opening", function () {
   console.log("opening trigger");
 })
-$(ul).on("open",function(){
+$(ul).on("open", function () {
   console.log("open trigger")
 })
-$(ul).bind("closing",function(){
+$(ul).bind("closing", function () {
   console.log("closing trigger");
 })
 $(ul).bind("close", function () {
   console.log("close trigger");
 })
-$(ul).bind("selecting",function(){
+$(ul).bind("selecting", function () {
   console.log("selecting trigger");
 })
 $(ul).bind("select", function () {
@@ -410,8 +428,9 @@ $(ul).click(function () {
 
 $(allList).click(function () {
   $(ul).trigger("selecting")
-  $(ul).trigger("select");
+  $(ul).trigger("closing");
   $(ul).trigger("close");
+  $(ul).trigger("select");
 })
 
 
