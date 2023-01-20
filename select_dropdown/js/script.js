@@ -213,7 +213,7 @@ function remove(element, tag) {
     }
   })
 
-  $(this).bind("unselect",function(){
+  $(this).bind("unselect", function () {
     console.log("unselect trigger");
   })
 
@@ -266,8 +266,8 @@ function showListCont() {
     return "none";
   }
   return "block";
- 
-  
+
+
 }
 
 function closeAllPopop() {
@@ -281,7 +281,7 @@ input.addEventListener('keyup', addTag);
 
 document.querySelector(".content").addEventListener('click', function () {
   dropdownCont.style.display = showListCont();
-  
+
 });
 
 let count = 1;
@@ -341,7 +341,7 @@ closeAll.addEventListener('click', function () {
   document.querySelector("#errorMsg").innerText = ``;
   closeAll.style.display = "none";
 
-  $(this).bind("clear",function(){
+  $(this).bind("clear", function () {
     console.log("clear trigger")
   })
 
@@ -378,28 +378,40 @@ function showObjectData() {
 // showObjectData();
 
 //custom event
-$(ul).bind("open",function(event){
-  console.log("open trigger");
+$(ul).on("opening", function () {
+  console.log("opening trigger");
 })
-$(ul).bind("close",function(){
+$(ul).on("open",function(){
+  console.log("open trigger")
+})
+$(ul).bind("closing",function(){
+  console.log("closing trigger");
+})
+$(ul).bind("close", function () {
   console.log("close trigger");
 })
-$(ul).bind("select",function(){
+$(ul).bind("selecting",function(){
+  console.log("selecting trigger");
+})
+$(ul).bind("select", function () {
   console.log("select trigger");
 })
 
-$(ul).click(function(){
-  if(dropdownCont.style.display == "block"){
+$(ul).click(function () {
+  if (dropdownCont.style.display == "block") {
+    $(ul).trigger("closing");
     $(ul).trigger("close");
   }
-  else{
+  else {
+    $(ul).trigger("opening");
     $(ul).trigger("open");
   }
 })
-$(allList).click(function(){
+
+$(allList).click(function () {
+  $(ul).trigger("selecting")
   $(ul).trigger("select");
   $(ul).trigger("close");
-  
 })
 
 
