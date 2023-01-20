@@ -213,6 +213,10 @@ function remove(element, tag) {
     }
   })
 
+  if(tags.length == 0){
+    closeAll.style.display = "none";
+  }
+
   $(this).bind("unselect", function () {
     console.log("unselect trigger");
   })
@@ -325,17 +329,39 @@ allList.forEach(item => {
 
       if (!tags.includes(item.innerText)) {
         tags.push(item.innerText);
+        // console.log(tags)
         ul.querySelectorAll("li").forEach(li => {
           li.remove();
         })
-
+        
         tags.slice().reverse().forEach(tag => {
           let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
           ul.insertAdjacentHTML("afterbegin", liTag);
         });
-
+        count = count + 1;
       }
-      count = count + 1;
+      else{
+        let index = tags.indexOf(item.innerText);
+        tags.splice(index,1);
+        if(tags.length == 0){
+          closeAll.style.display = "none";
+        }
+        ul.querySelectorAll("li").forEach(li => {
+          li.remove();
+        })
+        tags.slice().reverse().forEach(tag => {
+          let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
+          ul.insertAdjacentHTML("afterbegin", liTag);
+        });
+        count = count - 1;
+        $(ul).on("unselect",function(e){
+          console.log("unselect trigger");
+          e.preventDefault("select")
+        })
+        $(ul).trigger("unselect");
+        
+      }
+      // count = count + 1;
     }
     else if (count > 4) {
       document.querySelector("#errorMsg").innerText = `You can only select ${count - 1} options`;
@@ -427,10 +453,11 @@ $(ul).click(function () {
 })
 
 $(allList).click(function () {
-  $(ul).trigger("selecting")
+  $(ul).trigger("selecting");
+  $(ul).trigger("select");
   $(ul).trigger("closing");
   $(ul).trigger("close");
-  $(ul).trigger("select");
+  // $(ul).trigger("select");
 })
 
 
