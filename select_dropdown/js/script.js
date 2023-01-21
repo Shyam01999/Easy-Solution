@@ -312,6 +312,7 @@ allList.forEach(item => {
 
   item.addEventListener("click", (event) => {
     // console.log("List item clicked")
+    
     // console.log(item.innerText);
     // console.log(item.id);
     if (count < 5) {
