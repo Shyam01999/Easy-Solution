@@ -40,8 +40,6 @@ $(document).ready(function () {
   })
 })
 
-//new dropdown
-
 let selectedItemContainer = document.querySelector(".selected-item-container");
 let downIcon = document.querySelector(".fa-caret-down")
 let searchBox = document.querySelector(".search-cont input");
@@ -78,38 +76,38 @@ allListItems.forEach((item, index) => {
       name: event.target.innerText
     };
 
-    // switch (event.target.innerText) {
-    //   case "Sunday":
-    //     obj.id = 1;
-    //     break;
+    switch (event.target.innerText) {
+      case "Sunday":
+        obj.id = 1;
+        break;
 
-    //   case "Monday":
-    //     obj.id = 2;
-    //     break;
+      case "Monday":
+        obj.id = 2;
+        break;
 
-    //   case "Tueday":
-    //     obj.id = 3;
-    //     break;
+      case "Tueday":
+        obj.id = 3;
+        break;
 
-    //   case "Wednesday":
-    //     obj.id = 4;
-    //     break;
+      case "Wednesday":
+        obj.id = 4;
+        break;
 
-    //   case "Thursday":
-    //     obj.id = 5;
-    //     break;
+      case "Thursday":
+        obj.id = 5;
+        break;
 
-    //   case "Friday":
-    //     obj.id = 6;
-    //     break;
+      case "Friday":
+        obj.id = 6;
+        break;
 
-    //   case "Saturday":
-    //     obj.id = 7;
-    //     break;
+      case "Saturday":
+        obj.id = 7;
+        break;
 
-    //   default:
-    //     break;
-    // };
+      default:
+        break;
+    };
 
     if (array.length == 0 || (!array.includes(event.target.innerText))) {
       // array.push(event.target.innerText);
@@ -177,7 +175,12 @@ const ul = document.querySelector(".content ul");
 input = ul.querySelector("input");
 const allList = document.querySelectorAll(".list-cont .list");
 const closeAll = document.querySelector('#close');
-const dropdownCont = document.querySelector(".list-cont")
+const dropdownCont = document.querySelector(".list-cont");
+let addDropdown = true;
+let listCont;
+let script = document.getElementsByTagName("script");
+let lastScript = script[script.length - 1];
+console.log(lastScript);
 
 let tags = [];
 
@@ -213,7 +216,7 @@ function remove(element, tag) {
     }
   })
 
-  if(tags.length == 0){
+  if (tags.length == 0) {
     closeAll.style.display = "none";
   }
 
@@ -226,24 +229,10 @@ function remove(element, tag) {
 
   $(this).trigger("unselecting");
   $(this).trigger("unselect");
-  //   $(this).trigger("unselect");
-  // if (dropdownCont.style.display == "block") {
-  //   $(this).trigger("unselecting");
-  //   $(ul).trigger("closing");
-  //   $(ul).trigger("close");
-  //   $(this).trigger("unselect");
-  // }
-  // else {
-  //   $(this).trigger("unselecting");
-  //   $(ul).trigger("opening");
-  //   $(ul).trigger("open");
-  //   $(this).trigger("unselect");
-  // }
- 
+
 }
 
 function addTag(event) {
-
   if (event.key == "Enter") { // May, May
     let tag = event.target.value.replace(/\s+/g, '');//removing unwanted space from user tag
     if (tag.length > 1 && !tags.includes(tag)) {
@@ -289,7 +278,6 @@ function showListCont() {
   }
   return "block";
 
-
 }
 
 function closeAllPopop() {
@@ -299,20 +287,42 @@ function closeAllPopop() {
   return "block";
 }
 
+
+
 input.addEventListener('keyup', addTag);
 
 document.querySelector(".content").addEventListener('click', function () {
-  dropdownCont.style.display = showListCont();
+  // dropdownCont.style.display = showListCont();
 
+  if (addDropdown) {
+    listCont = document.createElement("div");
+    listCont.setAttribute("class", "list-cont");
+    let templete = `<ul>
+                      <li class="list" id="1">January</li>
+                      <li class="list" id="2">February</li>
+                      <li class="list" id="3">March</li> 
+                      <li class="list" id="4">April</li>
+                      <li class="list" id="5">May</li>
+                    </ul>`
+    listCont.innerHTML = templete;
+    console.log(listCont);
+    listCont.style.display="block";
+    lastScript.parentNode.insertBefore(listCont, lastScript.nextSibling);
+  }
+  else{
+    listCont.remove();
+  }
+  addDropdown = !addDropdown;
 });
+
+
 
 let count = 1;
 let selectItemsArray = [];
 allList.forEach(item => {
-
   item.addEventListener("click", (event) => {
     // console.log("List item clicked")
-    
+
     // console.log(item.innerText);
     // console.log(item.id);
     if (count < 5) {
@@ -334,17 +344,17 @@ allList.forEach(item => {
         ul.querySelectorAll("li").forEach(li => {
           li.remove();
         })
-        
+
         tags.slice().reverse().forEach(tag => {
           let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
           ul.insertAdjacentHTML("afterbegin", liTag);
         });
         count = count + 1;
       }
-      else{
+      else {
         let index = tags.indexOf(item.innerText);
-        tags.splice(index,1);
-        if(tags.length == 0){
+        tags.splice(index, 1);
+        if (tags.length == 0) {
           closeAll.style.display = "none";
         }
         ul.querySelectorAll("li").forEach(li => {
@@ -355,12 +365,12 @@ allList.forEach(item => {
           ul.insertAdjacentHTML("afterbegin", liTag);
         });
         count = count - 1;
-        $(ul).on("unselect",function(e){
+        $(ul).on("unselect", function (e) {
           console.log("unselect trigger");
           e.preventDefault("select")
         })
         $(ul).trigger("unselect");
-        
+
       }
       // count = count + 1;
     }

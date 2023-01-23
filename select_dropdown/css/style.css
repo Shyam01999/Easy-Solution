@@ -214,6 +214,7 @@
 
 
  .list-cont {
+     width: 40%;
      display: none;
      border: 1px solid black;
      border-radius: 8px;
