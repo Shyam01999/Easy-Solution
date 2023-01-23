@@ -173,14 +173,13 @@ const filterList = searchTerm => {
 
 const ul = document.querySelector(".content ul");
 input = ul.querySelector("input");
-const allList = document.querySelectorAll(".list-cont .list");
+// const allList = document.querySelectorAll(".list-cont .list");
 const closeAll = document.querySelector('#close');
-const dropdownCont = document.querySelector(".list-cont");
+// const dropdownCont = document.querySelector(".list-cont");
 let addDropdown = true;
 let listCont;
 let script = document.getElementsByTagName("script");
 let lastScript = script[script.length - 1];
-console.log(lastScript);
 
 let tags = [];
 
@@ -293,7 +292,6 @@ input.addEventListener('keyup', addTag);
 
 document.querySelector(".content").addEventListener('click', function () {
   // dropdownCont.style.display = showListCont();
-
   if (addDropdown) {
     listCont = document.createElement("div");
     listCont.setAttribute("class", "list-cont");
@@ -305,79 +303,140 @@ document.querySelector(".content").addEventListener('click', function () {
                       <li class="list" id="5">May</li>
                     </ul>`
     listCont.innerHTML = templete;
-    listCont.style.display="block";
+    listCont.style.display = "block";
+    // console.log(listCont.children[0].children);
     lastScript.parentNode.insertBefore(listCont, lastScript.nextSibling);
+    var allList = listCont.children[0].children;
+    handleList(allList);
   }
-  else{
+  else {
     listCont.remove();
   }
   addDropdown = !addDropdown;
 });
 
-
-
 let count = 1;
 let selectItemsArray = [];
-allList.forEach(item => {
-  item.addEventListener("click", (event) => {
-    // console.log("List item clicked")
-
-    // console.log(item.innerText);
-    // console.log(item.id);
-    if (count < 5) {
-      // console.log(count)
-      closeAll.style.display = "block";
-      document.querySelector(".content ul input").value = "";
-      // event.path[3].children[0].children[0].children[0].value="";
-      dropdownCont.style.display = showListCont();
-      selectItemsArray.push(item.id);
-      // selectItemsArray.push(item.innerText);
-      $.fn.val = function () {
-        let ulCont = $(".content ul input");
-        console.log(selectItemsArray);
-      }
-
-      if (!tags.includes(item.innerText)) {
-        tags.push(item.innerText);
-        // console.log(tags)
-        ul.querySelectorAll("li").forEach(li => {
-          li.remove();
-        })
-
-        tags.slice().reverse().forEach(tag => {
-          let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
-          ul.insertAdjacentHTML("afterbegin", liTag);
-        });
-        count = count + 1;
-      }
-      else {
-        let index = tags.indexOf(item.innerText);
-        tags.splice(index, 1);
-        if (tags.length == 0) {
-          closeAll.style.display = "none";
+function handleList(allList) {
+  for (let i = 0; i < allList.length; i++) {
+    allList[i].addEventListener("click", () => {
+      if (count < 5) {
+        closeAll.style.display = "block";
+        document.querySelector(".content ul input").value = "";
+        // event.path[3].children[0].children[0].children[0].value="";
+        // dropdownCont.style.display = showListCont();
+        // selectItemsArray.push(item.id);
+        // selectItemsArray.push(item.innerText);
+        $.fn.val = function () {
+          let ulCont = $(".content ul input");
+          console.log(selectItemsArray);
         }
-        ul.querySelectorAll("li").forEach(li => {
-          li.remove();
-        })
-        tags.slice().reverse().forEach(tag => {
-          let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
-          ul.insertAdjacentHTML("afterbegin", liTag);
-        });
-        count = count - 1;
-        $(ul).on("unselect", function (e) {
-          console.log("unselect trigger");
-          e.preventDefault("select")
-        })
-        $(ul).trigger("unselect");
+        console.log(allList[i].innerText);
+        if (!tags.includes(allList[i].innerText)) {
+          tags.push(allList[i].innerText);
+          console.log(tags)
+          ul.querySelectorAll("li").forEach(li => {
+            li.remove();
+          })
 
+          tags.slice().reverse().forEach(tag => {
+            let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
+            ul.insertAdjacentHTML("afterbegin", liTag);
+          });
+          count = count + 1;
+        }
+        else {
+          let index = tags.indexOf(item.innerText);
+          tags.splice(index, 1);
+          if (tags.length == 0) {
+            closeAll.style.display = "none";
+          }
+          ul.querySelectorAll("li").forEach(li => {
+            li.remove();
+          })
+          tags.slice().reverse().forEach(tag => {
+            let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
+            ul.insertAdjacentHTML("afterbegin", liTag);
+          });
+          count = count - 1;
+          $(ul).on("unselect", function (e) {
+            console.log("unselect trigger");
+            e.preventDefault("select")
+          })
+          $(ul).trigger("unselect");
+
+        }
+        // count = count + 1;
       }
-      // count = count + 1;
-    }
-    else if (count > 4) {
-      document.querySelector("#errorMsg").innerText = `You can only select ${count - 1} options`;
-    }
-  })
-})
+      else if (count > 4) {
+        document.querySelector("#errorMsg").innerText = `You can only select ${count - 1} options`;
+      }
+    })
+  }
+  return;
+}
+// allList.forEach(item => {
+//   console.log(item);
+//   item.addEventListener("click", (event) => {
+
+//     console.log("List item clicked")
+//     console.log(item.innerText);
+//     console.log(item.id);
+//     if (count < 5) {
+//       // console.log(count)
+//       closeAll.style.display = "block";
+//       document.querySelector(".content ul input").value = "";
+//       // event.path[3].children[0].children[0].children[0].value="";
+//       dropdownCont.style.display = showListCont();
+//       selectItemsArray.push(item.id);
+//       // selectItemsArray.push(item.innerText);
+//       $.fn.val = function () {
+//         let ulCont = $(".content ul input");
+//         console.log(selectItemsArray);
+//       }
+
+//       if (!tags.includes(item.innerText)) {
+//         tags.push(item.innerText);
+//         // console.log(tags)
+//         ul.querySelectorAll("li").forEach(li => {
+//           li.remove();
+//         })
+
+//         tags.slice().reverse().forEach(tag => {
+//           let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
+//           ul.insertAdjacentHTML("afterbegin", liTag);
+//         });
+//         count = count + 1;
+//       }
+//       else {
+//         let index = tags.indexOf(item.innerText);
+//         tags.splice(index, 1);
+//         if (tags.length == 0) {
+//           closeAll.style.display = "none";
+//         }
+//         ul.querySelectorAll("li").forEach(li => {
+//           li.remove();
+//         })
+//         tags.slice().reverse().forEach(tag => {
+//           let liTag = `<li><i class="fa-solid fa-xmark" onclick="remove(this, '${tag}')"></i>${tag}</li>`
+//           ul.insertAdjacentHTML("afterbegin", liTag);
+//         });
+//         count = count - 1;
+//         $(ul).on("unselect", function (e) {
+//           console.log("unselect trigger");
+//           e.preventDefault("select")
+//         })
+//         $(ul).trigger("unselect");
+
+//       }
+//       // count = count + 1;
+//     }
+//     else if (count > 4) {
+//       document.querySelector("#errorMsg").innerText = `You can only select ${count - 1} options`;
+//     }
+//   })
+// })
+
 
 closeAll.addEventListener('click', function () {
   count = 1;
@@ -451,24 +510,25 @@ $(ul).bind("select", function () {
   console.log("select trigger");
 })
 
-$(ul).click(function () {
-  if (dropdownCont.style.display == "block") {
-    $(ul).trigger("closing");
-    $(ul).trigger("close");
-  }
-  else {
-    $(ul).trigger("opening");
-    $(ul).trigger("open");
-  }
-})
+// $(ul).click(function () {
+//   console.log("hello");
+//   if (document.querySelector(".list-cont").style.display == "block") {
+//     $(ul).trigger("closing");
+//     $(ul).trigger("close");
+//   }
+//   else {
+//     $(ul).trigger("opening");
+//     $(ul).trigger("open");
+//   }
+// })
 
-$(allList).click(function () {
-  $(ul).trigger("selecting");
-  $(ul).trigger("select");
-  $(ul).trigger("closing");
-  $(ul).trigger("close");
-  // $(ul).trigger("select");
-})
+// $(allList).click(function () {
+//   $(ul).trigger("selecting");
+//   $(ul).trigger("select");
+//   $(ul).trigger("closing");
+//   $(ul).trigger("close");
+//   // $(ul).trigger("select");
+// })
 
 
 
