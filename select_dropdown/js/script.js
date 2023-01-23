@@ -305,7 +305,6 @@ document.querySelector(".content").addEventListener('click', function () {
                       <li class="list" id="5">May</li>
                     </ul>`
     listCont.innerHTML = templete;
-    console.log(listCont);
     listCont.style.display="block";
     lastScript.parentNode.insertBefore(listCont, lastScript.nextSibling);
   }
