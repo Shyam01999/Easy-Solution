@@ -155,6 +155,7 @@
  /* multiple tag dropdown */
  .wrapper {
      width: 40%;
+     /* position: relative; */
      /* background-color: #39B5E0; */
      border-radius: 10px;
      padding: 18px 25px 20px 1px;
@@ -214,8 +215,10 @@
 
 
  .list-cont {
-     width: 40%;
-     display: none;
+     width: 39.5%;
+     /* position: absolute;
+     top: 6rem; */
+     /* display: none; */
      border: 1px solid black;
      border-radius: 8px;
      height: 8rem;
@@ -240,4 +243,18 @@
      list-style: none;
      margin-top: 1rem;
      padding: 0.5rem;
+ }
+
+ @media only screen and (max-height: 100px) {
+     .wrapper {
+         position: relative;
+         top: auto;
+         left: auto;
+     }
+
+     .list-cont {
+         position: absolute;
+         top: auto;
+         left: auto;
+     }
  }

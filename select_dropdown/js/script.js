@@ -1,173 +1,173 @@
 
-$(document).ready(function () {
-  let listItems = document.querySelectorAll("#dropdown1 option");
-  //  let addList = true;
-  var $container = $(
-    // '<span class="select2 select2-container"></span>' +
-    '<div class="selection"></div>'  // +
-  );
+// $(document).ready(function () {
+//   let listItems = document.querySelectorAll("#dropdown1 option");
+//   //  let addList = true;
+//   var $container = $(
+//     // '<span class="select2 select2-container"></span>' +
+//     '<div class="selection"></div>'  // +
+//   );
 
-  $("#dropdown1").click(function () {
-    $(".selection").slideToggle();
-    $($container).insertAfter(this);
+//   $("#dropdown1").click(function () {
+//     $(".selection").slideToggle();
+//     $($container).insertAfter(this);
 
-    function init() {
-      let selectCont = $("select");
-      // console.log(selectCont)
-      let ul = `<ul class="select2-selection__rendered">`
-      for (let i = 0; i < listItems.length; i++) {
-        ul += `<li class="list-items">${listItems[i].innerText}</li>`
-      }
-      ul += `</ul>`
-      // console.log(ul)
-      $(".selection").html(ul);
+//     function init() {
+//       let selectCont = $("select");
+//       // console.log(selectCont)
+//       let ul = `<ul class="select2-selection__rendered">`
+//       for (let i = 0; i < listItems.length; i++) {
+//         ul += `<li class="list-items">${listItems[i].innerText}</li>`
+//       }
+//       ul += `</ul>`
+//       // console.log(ul)
+//       $(".selection").html(ul);
 
-      let list = document.querySelectorAll("li");
-      for (let i = 0; i < list.length; i++) {
-        list[i].addEventListener("click", function (e) {
-          listItems.forEach(item => {
-            item.removeAttribute("selected");
-            $(".selection").toggle();
-          })
-          listItems[i].setAttribute("selected", true);
+//       let list = document.querySelectorAll("li");
+//       for (let i = 0; i < list.length; i++) {
+//         list[i].addEventListener("click", function (e) {
+//           listItems.forEach(item => {
+//             item.removeAttribute("selected");
+//             $(".selection").toggle();
+//           })
+//           listItems[i].setAttribute("selected", true);
 
-        })
-      }
-    }
+//         })
+//       }
+//     }
 
-    init();
+//     init();
 
-  })
-})
+//   })
+// })
 
-let selectedItemContainer = document.querySelector(".selected-item-container");
-let downIcon = document.querySelector(".fa-caret-down")
-let searchBox = document.querySelector(".search-cont input");
-let allListItems = document.querySelectorAll(".item");
-let selectedItemContainerPlaceholder = document.querySelector(".selected-item-container-placeholder");
+// let selectedItemContainer = document.querySelector(".selected-item-container");
+// let downIcon = document.querySelector(".fa-caret-down")
+// let searchBox = document.querySelector(".search-cont input");
+// let allListItems = document.querySelectorAll(".item");
+// let selectedItemContainerPlaceholder = document.querySelector(".selected-item-container-placeholder");
 
-let getVisibility = () => {
-  if (document.querySelector(".list-item").style.display == "block") {
-    return "none";
-  }
-  return "block";
-}
+// let getVisibility = () => {
+//   if (document.querySelector(".list-item").style.display == "block") {
+//     return "none";
+//   }
+//   return "block";
+// }
 
-let getSearchBoxVisiblity = () => {
-  if (searchBox.style.opacity == 1) {
-    return 0
-  }
-  return 1;
-}
+// let getSearchBoxVisiblity = () => {
+//   if (searchBox.style.opacity == 1) {
+//     return 0
+//   }
+//   return 1;
+// }
 
-downIcon.addEventListener("click", () => {
-  document.querySelector(".list-item").style.display = getVisibility();
-  searchBox.style.opacity = getSearchBoxVisiblity();
-  searchBox.value = "";
-  filterList("");
-})
+// downIcon.addEventListener("click", () => {
+//   document.querySelector(".list-item").style.display = getVisibility();
+//   searchBox.style.opacity = getSearchBoxVisiblity();
+//   searchBox.value = "";
+//   filterList("");
+// })
 
-let array = [];
-allListItems.forEach((item, index) => {
-  item.addEventListener("click", (event) => {
-    // console.log(event);
-    let obj = {
-      id: null,
-      name: event.target.innerText
-    };
+// let array = [];
+// allListItems.forEach((item, index) => {
+//   item.addEventListener("click", (event) => {
+//     // console.log(event);
+//     let obj = {
+//       id: null,
+//       name: event.target.innerText
+//     };
 
-    switch (event.target.innerText) {
-      case "Sunday":
-        obj.id = 1;
-        break;
+//     switch (event.target.innerText) {
+//       case "Sunday":
+//         obj.id = 1;
+//         break;
 
-      case "Monday":
-        obj.id = 2;
-        break;
+//       case "Monday":
+//         obj.id = 2;
+//         break;
 
-      case "Tueday":
-        obj.id = 3;
-        break;
+//       case "Tueday":
+//         obj.id = 3;
+//         break;
 
-      case "Wednesday":
-        obj.id = 4;
-        break;
+//       case "Wednesday":
+//         obj.id = 4;
+//         break;
 
-      case "Thursday":
-        obj.id = 5;
-        break;
+//       case "Thursday":
+//         obj.id = 5;
+//         break;
 
-      case "Friday":
-        obj.id = 6;
-        break;
+//       case "Friday":
+//         obj.id = 6;
+//         break;
 
-      case "Saturday":
-        obj.id = 7;
-        break;
+//       case "Saturday":
+//         obj.id = 7;
+//         break;
 
-      default:
-        break;
-    };
+//       default:
+//         break;
+//     };
 
-    if (array.length == 0 || (!array.includes(event.target.innerText))) {
-      // array.push(event.target.innerText);
-      array.push(obj);
-      let tagElement = `<button class="select-item-text" id=${obj.id}>`;
-      tagElement += `<i class="fa fa-xmark" onclick="remove(this, '${obj.name}')"></i>`;
-      tagElement += `${obj.name}</button>`
+//     if (array.length == 0 || (!array.includes(event.target.innerText))) {
+//       // array.push(event.target.innerText);
+//       array.push(obj);
+//       let tagElement = `<button class="select-item-text" id=${obj.id}>`;
+//       tagElement += `<i class="fa fa-xmark" onclick="remove(this, '${obj.name}')"></i>`;
+//       tagElement += `${obj.name}</button>`
 
-      let objectID = obj.id
-      // console.log(objectID);
-      // let crossIcons = document.querySelectorAll(".fa-xmark");
-      selectedItemContainerPlaceholder.style.display = "none";
-      selectedItemContainer.innerHTML += tagElement;
-      // crossIcons.forEach(item => item.addEventListener('click', handleClick(objectID)));
-      // let selectedItem = document.createElement("p");
-      // selectedItem.classList.add("select-item-text");
-      // let closeMark = document.createElement("i");
-      // closeMark.classList.add("fa fa-xmark");
-      // selectedItem.innerHTML = closeMark;
-      // selectedItem.innerText = event.target.innerText;
-      // selectedItemContainer.appendChild(selectedItem);
-      document.querySelector(".list-item").style.display = getVisibility();
-      searchBox.style.opacity = getSearchBoxVisiblity();
-    }
+//       let objectID = obj.id
+//       // console.log(objectID);
+//       // let crossIcons = document.querySelectorAll(".fa-xmark");
+//       selectedItemContainerPlaceholder.style.display = "none";
+//       selectedItemContainer.innerHTML += tagElement;
+//       // crossIcons.forEach(item => item.addEventListener('click', handleClick(objectID)));
+//       // let selectedItem = document.createElement("p");
+//       // selectedItem.classList.add("select-item-text");
+//       // let closeMark = document.createElement("i");
+//       // closeMark.classList.add("fa fa-xmark");
+//       // selectedItem.innerHTML = closeMark;
+//       // selectedItem.innerText = event.target.innerText;
+//       // selectedItemContainer.appendChild(selectedItem);
+//       document.querySelector(".list-item").style.display = getVisibility();
+//       searchBox.style.opacity = getSearchBoxVisiblity();
+//     }
 
-    else {
-      // [Monday, Tuesday].indexOf("Monday"); -> 0
-      let index = array.indexOf(event.target.innerText);
-      array.splice(index, 1);
-      // [Tuesday];
-      selectedItemContainer.innerHTML = null;
-      // array.map((item, index) => {
-      // let selectedItem = document.createElement("p");
-      // selectedItem.classList.add("select-item-text");
-      // selectedItem.innerText = item;
-      // selectedItemContainer.appendChild(selectedItem);
-      // });
-      selectedItemContainerPlaceholder.style.display = "none";
-      document.querySelector(".list-item").style.display = getVisibility();
-      searchBox.style.opacity = getSearchBoxVisiblity();
-    }
-  })
-});
+//     else {
+//       // [Monday, Tuesday].indexOf("Monday"); -> 0
+//       let index = array.indexOf(event.target.innerText);
+//       array.splice(index, 1);
+//       // [Tuesday];
+//       selectedItemContainer.innerHTML = null;
+//       // array.map((item, index) => {
+//       // let selectedItem = document.createElement("p");
+//       // selectedItem.classList.add("select-item-text");
+//       // selectedItem.innerText = item;
+//       // selectedItemContainer.appendChild(selectedItem);
+//       // });
+//       selectedItemContainerPlaceholder.style.display = "none";
+//       document.querySelector(".list-item").style.display = getVisibility();
+//       searchBox.style.opacity = getSearchBoxVisiblity();
+//     }
+//   })
+// });
 
-//search functionality
-searchBox.addEventListener("keyup", function (event) {
-  filterList(event.target.value)
-})
+// //search functionality
+// searchBox.addEventListener("keyup", function (event) {
+//   filterList(event.target.value)
+// })
 
-const filterList = searchTerm => {
-  searchTerm = searchTerm.toLowerCase();
-  allListItems.forEach(list => {
-    let label = list.innerText.toLowerCase();
-    if (label.indexOf(searchTerm) != -1) {
-      list.style.display = "block";
-    } else {
-      list.style.display = "none";
-    }
-  })
-}
+// const filterList = searchTerm => {
+//   searchTerm = searchTerm.toLowerCase();
+//   allListItems.forEach(list => {
+//     let label = list.innerText.toLowerCase();
+//     if (label.indexOf(searchTerm) != -1) {
+//       list.style.display = "block";
+//     } else {
+//       list.style.display = "none";
+//     }
+//   })
+// }
 
 // Multitag Functionality
 
@@ -303,7 +303,7 @@ document.querySelector(".content").addEventListener('click', function () {
                       <li class="list" id="5">May</li>
                     </ul>`
     listCont.innerHTML = templete;
-    listCont.style.display = "block";
+    // listCont.style.display = "block";
     // console.log(listCont.children[0].children);
     lastScript.parentNode.insertBefore(listCont, lastScript.nextSibling);
     var allList = listCont.children[0].children;
@@ -373,8 +373,28 @@ function handleList(allList) {
       }
     })
   }
+  var screenHeight = window.innerHeight;
+  console.log(screenHeight);
+  // Check if the screen height is below a certain threshold
+  if (screenHeight < 250) {
+    // If the screen height is below the threshold, change the position of the select box and options
+    var selectBox = document.querySelector(".wrapper");
+    selectBox.style.position = "relative";
+    selectBox.style.top = "7rem";
+    selectBox.style.left = "auto";
+    var options = document.querySelector(".list-cont");
+    options.style.position = "absolute";
+    options.style.top = "0px";
+    options.style.left = "auto";
+
+  }
   return;
 }
+
+
+// Get the current screen height
+var screenHeight = window.innerHeight;
+console.log(screenHeight);
 // allList.forEach(item => {
 //   console.log(item);
 //   item.addEventListener("click", (event) => {
@@ -489,6 +509,8 @@ function showObjectData() {
 }
 
 // showObjectData();
+
+
 
 //custom event
 $(ul).on("opening", function () {
