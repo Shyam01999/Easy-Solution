@@ -388,6 +388,17 @@ function handleList(allList) {
     options.style.left = "auto";
 
   }
+  else{
+    var selectBox = document.querySelector(".wrapper");
+    selectBox.style.position = "relative";
+    selectBox.style.top = "auto";
+    selectBox.style.left = "auto";
+    var options = document.querySelector(".list-cont");
+    options.style.position = "absolute";
+    options.style.top = "6.5rem";
+    options.style.left = "auto";
+
+  }
   return;
 }
 
